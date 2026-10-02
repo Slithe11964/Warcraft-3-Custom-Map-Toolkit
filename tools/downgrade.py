@@ -12,9 +12,10 @@ What it converts (each file type was checked against the same map saved by an ol
   war3map.j          script       Reforged-only calls in World Editor's generated code are removed
                                   or replaced (units with skins, HD fog/water, camera fields,
                                   race skins); then pjass checks it against 1.29.2's common.j.
-Removed: war3mapSkin.*, the Reforged trigger editor files (wtg/wct) unless --keep-editor-files,
-and other Reforged-only files. The result is meant to be PLAYED in 1.29.2. Opening it in the 1.29
-editor additionally needs classic trigger files (a later step).
+  war3map.wtg/.wct   triggers     Reforged -> classic (one folder level; variables kept)
+  war3map.w3r/.w3c   regions/cameras -> v5 / v0 (editor files)
+Removed: war3mapSkin.* and other Reforged-only files. --no-editor-files makes a play-only map.
+The map's code is vJass: saving it in the 1.29 World Editor needs JassHelper there.
 Every conversion is checked by reading the result back. Untested in the 1.29 game itself until
 someone plays it.
 """
@@ -129,6 +130,70 @@ def objects_v2(m, ext):
     assert read_objects(out, ext)['version'] == 2
     return out
 
+# ---------------------------------------------------------------- regions / cameras (editor only)
+def w3r_v5(d):
+    ver, n = struct.unpack_from('<ii', d, 0)
+    if ver == 5:
+        return d
+    assert ver == 7, ver
+    o, out = 8, bytearray(struct.pack('<ii', 5, n))
+    for _ in range(n):
+        s = o; o += 16
+        o = d.index(b'\0', o) + 1          # name
+        o += 4 + 4                          # index, weather
+        o = d.index(b'\0', o) + 1          # ambient sound
+        o += 4                              # colour + end byte
+        out += d[s:o]; o += 8               # Reforged: 8 extra bytes
+    if o != len(d):
+        raise ValueError('regions: %d bytes left over' % (len(d) - o))
+    return bytes(out)
+
+def w3c_v0(d):
+    ver, n = struct.unpack_from('<ii', d, 0)
+    if ver == 0:
+        return d
+    assert ver == 3, ver
+    o, out = 8, bytearray(struct.pack('<ii', 0, n))
+    for _ in range(n):
+        out += d[o:o + 40]; o += 40 + 24    # 10 classic values; Reforged local pitch/yaw/roll, depth of field ...
+        e = d.index(b'\0', o); out += d[o:e + 1]; o = e + 1 + 4   # name; Reforged camera type
+    if o != len(d):
+        raise ValueError('cameras: %d bytes left over' % (len(d) - o))
+    return bytes(out)
+
+# ---------------------------------------------------------------- trigger editor (classic format)
+def triggers_classic(wtg_data, wct_data):
+    from wtg import read_wtg, write_function
+    import wtg as W
+    from wct_any import read_wct, write_wct
+    t = read_wtg(wtg_data)
+    def s_(x): return x.encode('utf-8') + b'\0'
+    def i_(x): return struct.pack('<i', x)
+    cats = [i for i in t['items'] if i['kind'] == W.CATEGORY and i['parent'] == 0 and i['name'] != 'Shared variables']
+    trig = [i for i in t['items'] if i['kind'] in (W.GUI, W.COMMENT, W.SCRIPT)]
+    top = {c['id'] for c in cats}
+    out = bytearray(b'WTG!' + i_(7) + i_(len(cats)))
+    for c in cats:
+        out += i_(c['id']) + s_(c['name']) + i_(c['is_comment'])
+    out += i_(2) + i_(len(t['variables']))
+    for v in t['variables']:
+        out += s_(v['name']) + s_(v['type']) + i_(v['unk']) + i_(v['is_array']) + i_(v['size']) + i_(v['is_init']) + s_(v['init'])
+    out += i_(len(trig))
+    for it in trig:
+        if it['parent'] not in top:
+            raise ValueError('trigger %s is in a sub-folder; the classic format has one folder level' % it['name'])
+        out += s_(it['name']) + s_(it['desc']) + i_(it['is_comment']) + i_(it['enabled']) + i_(it['custom'])
+        out += i_(it['initially_off']) + i_(it['run_on_init']) + i_(it['parent']) + i_(len(it['functions']))
+        w = W.W()
+        for f in it['functions']:
+            write_function(w, f)
+        out += bytes(w.b)
+    c = read_wct(wct_data)
+    if len(c['entries']) != len(trig):
+        raise ValueError('custom text entries (%d) do not match triggers (%d)' % (len(c['entries']), len(trig)))
+    c['format'] = 'classic'
+    return bytes(out), write_wct(c)
+
 # ---------------------------------------------------------------- map info
 class R:
     def __init__(s, d): s.d, s.o = d, 0
@@ -237,7 +302,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('map'); ap.add_argument('out')
     ap.add_argument('--w3i-template', required=True)
-    ap.add_argument('--keep-editor-files', action='store_true')
+    ap.add_argument('--no-editor-files', action='store_true', help='leave out trigger/region/camera editor files (play-only map)')
     a = ap.parse_args()
     m = MPQ(a.map)
     files, report = {}, []
@@ -260,7 +325,17 @@ def main():
         print('\n'.join(errs))
         sys.exit('the script still uses something 1.29.2 does not have')
     files['war3map.j'] = (text.replace('\n', '\r\n') if crlf else text).encode('utf-8')
-    for n in REFORGED_ONLY + ([] if a.keep_editor_files else ['war3map.wtg', 'war3map.wct', 'war3map.w3r', 'war3map.w3c', 'war3map.w3s']):
+    if a.no_editor_files:
+        for n in ('war3map.wtg', 'war3map.wct', 'war3map.w3r', 'war3map.w3c', 'war3map.w3s'):
+            files[n] = None
+    else:
+        if m.read('war3map.w3r'):
+            files['war3map.w3r'] = w3r_v5(m.read('war3map.w3r'))
+        if m.read('war3map.w3c'):
+            files['war3map.w3c'] = w3c_v0(m.read('war3map.w3c'))
+        files['war3map.wtg'], files['war3map.wct'] = triggers_classic(m.read('war3map.wtg'), m.read('war3map.wct'))
+        report.append('trigger editor files -> classic (wtg 7 / wct 1); regions -> v5; cameras -> v0')
+    for n in REFORGED_ONLY:
         if m.read(n) is not None:
             files[n] = None
     tmp = a.out + '.tmp'
