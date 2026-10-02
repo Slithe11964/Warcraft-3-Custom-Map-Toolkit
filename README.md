@@ -23,6 +23,8 @@ protected map to the documented, modular map it is now.
 | 3 | `document.py` | Writes `TRIGGER_INDEX.md` (every trigger and what fires it), `GLOBALS.md` (every variable and who uses it) and `DEAD_CODE.md`. |
 | any | `check_editable.py` | Compiles what World Editor would build from the map's trigger text, and the playable script, with pjass. Also warns about save-breaking long strings. |
 | any | `compat_report.py` | Which game versions can run the script, and which file formats need converting. |
+| any | `downgrade.py` | Turns a Reforged-saved map into a playable 1.29.2 map (terrain, doodads, units, objects, map info, script). Every converter was checked against the same map saved by an older editor. |
+| any | `objdata.py` | Reads and writes object data (v2 classic, v3 Reforged), byte-exact. |
 | any | `version_libs.py` | Builds `common.j`/`blizzard.j` for any patch (1.29.2, 1.31.1, …) from the annotated jassdoc libraries in `tools/jassdoc/`. |
 
 Libraries the tools share:

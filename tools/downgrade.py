@@ -1,0 +1,273 @@
+"""Make a Warcraft III 1.29.2 copy of a map saved by the Reforged World Editor.
+
+    python tools/downgrade.py REFORGED.w3x OUT_129.w3x --w3i-template OLDER.w3x [--keep-editor-files]
+
+What it converts (each file type was checked against the same map saved by an older editor):
+  war3map.w3e        terrain      v12 -> v11  (ground texture + flags packed back into one byte)
+  war3map.doo        doodads      v13 -> v8   (Reforged skin id and extra fields dropped)
+  war3mapUnits.doo   placed units v13 -> v8   (same)
+  war3map.w3u/t/a/b/d/h/q objects v3 -> v2    (the war3mapSkin.* part merged back in)
+  war3map.w3i        map info     -> v25      (built from --w3i-template, a w3i v25/v28/v31 of the same
+                                               map, with names/texts taken from the Reforged map)
+  war3map.j          script       Reforged-only calls in World Editor's generated code are removed
+                                  or replaced (units with skins, HD fog/water, camera fields,
+                                  race skins); then pjass checks it against 1.29.2's common.j.
+Removed: war3mapSkin.*, the Reforged trigger editor files (wtg/wct) unless --keep-editor-files,
+and other Reforged-only files. The result is meant to be PLAYED in 1.29.2. Opening it in the 1.29
+editor additionally needs classic trigger files (a later step).
+Every conversion is checked by reading the result back. Untested in the 1.29 game itself until
+someone plays it.
+"""
+import argparse, os, re, struct, subprocess, sys, tempfile
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+from mpq import MPQ, write_files, compact
+from objdata import read_objects, write_objects
+
+# ---------------------------------------------------------------- terrain
+def w3e_v11(d):
+    ver, = struct.unpack_from('<i', d, 4)
+    if ver == 11:
+        return d
+    assert ver == 12, ver
+    o = 9
+    o += 4                                   # custom tilesets flag
+    n, = struct.unpack_from('<i', d, o); o += 4 + 4 * n
+    n, = struct.unpack_from('<i', d, o); o += 4 + 4 * n
+    w, h = struct.unpack_from('<ii', d, o); o += 8 + 8
+    assert len(d) == o + 8 * w * h, 'unexpected terrain size'
+    out = bytearray(d[:o]); out[4:8] = struct.pack('<i', 11)
+    for i in range(w * h):
+        p = d[o + 8 * i:o + 8 * i + 8]
+        v, = struct.unpack_from('<H', p, 4)
+        tex, flags = v & 0x3F, (v >> 6) & 0x0F
+        if tex > 15 or v >> 10:
+            raise ValueError('terrain point %d uses texture %d (> 15) or unknown flags; 1.29 cannot store it' % (i, tex))
+        out += p[:4] + bytes([tex | (flags << 4)]) + p[6:8]
+    return bytes(out)
+
+# ---------------------------------------------------------------- doodads / units
+def _skip_sets(d, o):
+    n, = struct.unpack_from('<i', d, o); o += 4
+    for _ in range(n):
+        k, = struct.unpack_from('<i', d, o); o += 4 + 8 * k
+    return o
+
+def doo_v8(d):
+    mag, ver, sub, n = struct.unpack_from('<4siii', d, 0)
+    if ver == 8:
+        return d
+    assert mag == b'W3do' and ver >= 13, (mag, ver)
+    o, out = 16, bytearray(struct.pack('<4siii', b'W3do', 8, 11, n))
+    for _ in range(n):
+        base = d[o:o + 36]; o += 36 + 8                       # + skin id, -1
+        mid = d[o:o + 6]; o += 6                               # flags, life, item table
+        s = o; o = _skip_sets(d, o); sets = d[s:o]
+        o += 4                                                 # -1
+        eid = d[o:o + 4]; o += 4
+        k, = struct.unpack_from('<i', d, o + 8); o += 12 + 36 * k   # Reforged extra block
+        out += base + mid + sets + eid
+    out += d[o:]                                               # special doodads section (same format)
+    return bytes(out)
+
+def units_v8(d):
+    mag, ver, sub, n = struct.unpack_from('<4siii', d, 0)
+    if ver == 8:
+        return d
+    assert mag == b'W3do' and ver >= 13, (mag, ver)
+    o, out = 16, bytearray(struct.pack('<4siii', b'W3do', 8, 11, n))
+    for _ in range(n):
+        s = o
+        base = d[o:o + 36]; o += 36 + 8                       # + skin id, -1
+        a = o
+        o += 1 + 4 + 2 + 4 + 4 + 4                             # flags, owner, 2 bytes, hp, mp, item table
+        o = _skip_sets(d, o)
+        o += 4 + 4 + 4 + 12                                    # gold, acquisition, hero level, str/agi/int
+        k, = struct.unpack_from('<i', d, o); o += 4 + 8 * k    # items
+        k, = struct.unpack_from('<i', d, o); o += 4 + 12 * k   # abilities
+        rf, = struct.unpack_from('<i', d, o); o += 4
+        if rf == 0:
+            o += 4
+        elif rf == 1:
+            o += 8
+        else:
+            k, = struct.unpack_from('<i', d, o); o += 4 + 8 * k
+        o += 12                                                # color, waygate, creation number
+        body = d[a:o]
+        k, = struct.unpack_from('<i', d, o + 8); o += 12 + 36 * k  # Reforged extra block
+        out += base + body
+    if o != len(d):
+        raise ValueError('units file: %d bytes left over' % (len(d) - o))
+    return bytes(out)
+
+# ---------------------------------------------------------------- objects
+def objects_v2(m, ext):
+    main = m.read('war3map.' + ext)
+    if not main:
+        return None
+    t = read_objects(main, ext)
+    if t['version'] <= 2:
+        return main
+    skin = m.read('war3mapSkin.' + ext)
+    if skin:
+        st = read_objects(skin, ext)
+        for table in ('original', 'custom'):
+            by = {(o['base'], o['id']): o for o in t[table]}
+            for so in st[table]:
+                key = (so['base'], so['id'])
+                if key not in by:
+                    by[key] = dict(base=so['base'], id=so['id'], sets=[dict(flag=0, mods=[])])
+                    t[table].append(by[key])
+                mods = by[key]['sets'][0]['mods']
+                have = {(x['field'], x['level']) for x in mods}
+                mods += [x for x in so['sets'][0]['mods'] if (x['field'], x['level']) not in have]
+    for table in ('original', 'custom'):
+        for o in t[table]:
+            if len(o['sets']) > 1:
+                raise ValueError('%s %s has %d sets; only the first can be kept' % (ext, o['id'] or o['base'], len(o['sets'])))
+    out = write_objects(t, 2, ext)
+    assert read_objects(out, ext)['version'] == 2
+    return out
+
+# ---------------------------------------------------------------- map info
+class R:
+    def __init__(s, d): s.d, s.o = d, 0
+    def i(s):
+        v, = struct.unpack_from('<i', s.d, s.o); s.o += 4; return v
+    def z(s):
+        e = s.d.index(b'\0', s.o); v = s.d[s.o:e]; s.o = e + 1; return v
+    def raw(s, k):
+        v = s.d[s.o:s.o + k]; s.o += k; return v
+
+def w3i_v25(template, reforged):
+    """Map info v25 from an older w3i of the same map; names and loading texts from the Reforged one."""
+    t = R(template)
+    ver = t.i()
+    if ver not in (25, 28, 31):
+        raise ValueError('w3i template version %d not supported' % ver)
+    out = bytearray(struct.pack('<i', 25))
+    out += t.raw(8)                                    # saves, editor version
+    if ver >= 28:
+        t.raw(16)                                      # game version (dropped)
+    rf = R(reforged)
+    rver = rf.i(); rf.raw(8)
+    if rver >= 28:
+        rf.raw(16)
+    texts = [rf.z() for _ in range(4)]                 # name, author, description, players
+    for _ in range(4):
+        t.z()
+    out += b''.join(x + b'\0' for x in texts)
+    out += t.raw(32 + 16 + 12 + 1 + 4)                 # camera bounds, complements, playable w/h, flags, tileset, loading index
+    rf.raw(32 + 16 + 12 + 1 + 4)
+    if rver >= 33:
+        rf.raw(4)                                      # Reforged: an extra loading-screen value
+    loading = [rf.z() for _ in range(4)]               # loading screen model/text/title/subtitle (from the Reforged map)
+    for _ in range(4):
+        t.z()
+    out += b''.join(x + b'\0' for x in loading)
+    out += t.raw(4)                                    # game data set
+    for _ in range(4):
+        out += t.z() + b'\0'                           # prologue
+    out += t.raw(4 + 12 + 4 + 4)                       # fog style, start/end/density, colour, weather
+    out += t.z() + b'\0'                               # sound environment
+    out += t.raw(1 + 4)                                # light tileset, water colour
+    if ver >= 28:
+        t.raw(4)                                       # script language
+    if ver >= 31:
+        t.raw(8)                                       # supported modes, game data version
+    np = t.i(); out += struct.pack('<i', np)
+    for _ in range(np):
+        out += t.raw(16) + t.z() + b'\0' + t.raw(16)
+        if ver >= 31:
+            t.raw(8)                                   # enemy priorities (Reforged)
+    out += t.d[t.o:]                                   # forces, upgrades, tech, random groups, item tables
+    return bytes(out)
+
+# ---------------------------------------------------------------- script
+def split_args(s):
+    depth, cur, out = 0, '', []
+    for ch in s:
+        if ch == ',' and depth == 0:
+            out.append(cur); cur = ''
+            continue
+        depth += ch == '('
+        depth -= ch == ')'
+        cur += ch
+    out.append(cur)
+    return out
+
+def replace_calls(text, name, fn):
+    out, pos = [], 0
+    for m in re.finditer(r'\b%s\s*\(' % name, text):
+        if m.start() < pos:
+            continue
+        i, depth = m.end(), 1
+        while depth:
+            depth += text[i] == '('
+            depth -= text[i] == ')'
+            i += 1
+        out.append(text[pos:m.start()]); out.append(fn(split_args(text[m.end():i - 1]))); pos = i
+    out.append(text[pos:])
+    return ''.join(out)
+
+DROP_LINE = re.compile(r'^\s*call\s+(BlzSetTerrainFogMaxLinearDensity|BlzSetTerrainFogDrawOverSky|SetHDWaterParamsEx|SetPlayerRaceSkin|'
+                       r'BlzCameraSetupSetCameraType)\s*\(.*$|^\s*call\s+CameraSetupSetField\s*\(\s*\w+\s*,\s*CAMERA_FIELD_(LOCAL_\w+|NEARZ|'
+                       r'DEPTH_OF_FIELD_\w+|ZABSOLUTE)\b.*$', re.M)
+
+def script_129(text):
+    text = replace_calls(text, 'BlzCreateUnitWithSkin', lambda a: 'CreateUnit(%s)' % ','.join(a[:5]))
+    text = replace_calls(text, 'SetTerrainFogExV', lambda a: 'SetTerrainFogEx(%s)' % ','.join(a[:4] + a[8:]))
+    text, n = DROP_LINE.subn('', text)
+    return text, n
+
+def pjass(text, ver='1.29.2'):
+    d = os.path.join(HERE, 'versions', ver)
+    if not os.path.exists(os.path.join(d, 'common.j')):
+        subprocess.run([sys.executable, os.path.join(HERE, 'version_libs.py'), ver], check=True, capture_output=True)
+    with tempfile.NamedTemporaryFile('w', suffix='.j', delete=False, encoding='utf-8') as f:
+        f.write(text); p = f.name
+    r = subprocess.run(['pjass', os.path.join(d, 'common.j'), os.path.join(d, 'blizzard.j'), p], capture_output=True, text=True)
+    os.unlink(p)
+    return r.returncode == 0, [l for l in (r.stdout + r.stderr).splitlines() if 'Parse successful' not in l][:20]
+
+REFORGED_ONLY = ['war3mapSkin.w3u', 'war3mapSkin.w3t', 'war3mapSkin.w3a', 'war3mapSkin.w3b', 'war3mapSkin.w3d',
+                 'war3mapSkin.w3h', 'war3mapSkin.w3q', 'war3mapSkin.txt', 'war3map.w3l', 'war3map.w3grp']
+
+def main():
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument('map'); ap.add_argument('out')
+    ap.add_argument('--w3i-template', required=True)
+    ap.add_argument('--keep-editor-files', action='store_true')
+    a = ap.parse_args()
+    m = MPQ(a.map)
+    files, report = {}, []
+    files['war3map.w3e'] = w3e_v11(m.read('war3map.w3e')); report.append('terrain -> v11')
+    files['war3map.doo'] = doo_v8(m.read('war3map.doo')); report.append('doodads -> v8')
+    if m.read('war3mapUnits.doo'):
+        files['war3mapUnits.doo'] = units_v8(m.read('war3mapUnits.doo')); report.append('placed units -> v8')
+    for x in 'utabdhq':
+        o = objects_v2(m, 'w3' + x)
+        if o is not None:
+            files['war3map.w3' + x] = o
+    report.append('object data -> v2 (skin files merged)')
+    files['war3map.w3i'] = w3i_v25(MPQ(a.w3i_template).read('war3map.w3i'), m.read('war3map.w3i')); report.append('map info -> v25')
+    text = m.read('war3map.j').decode('utf-8')
+    crlf = '\r\n' in text
+    text, dropped = script_129(text.replace('\r\n', '\n'))
+    ok, errs = pjass(text)
+    report.append('script: %d Reforged-only lines removed; units created without skins; compiles for 1.29.2: %s' % (dropped, ok))
+    if not ok:
+        print('\n'.join(errs))
+        sys.exit('the script still uses something 1.29.2 does not have')
+    files['war3map.j'] = (text.replace('\n', '\r\n') if crlf else text).encode('utf-8')
+    for n in REFORGED_ONLY + ([] if a.keep_editor_files else ['war3map.wtg', 'war3map.wct', 'war3map.w3r', 'war3map.w3c', 'war3map.w3s']):
+        if m.read(n) is not None:
+            files[n] = None
+    tmp = a.out + '.tmp'
+    write_files(a.map, tmp, files)
+    compact(tmp, a.out); os.remove(tmp)
+    print('\n'.join(report))
+    print('written', a.out)
+
+if __name__ == '__main__':
+    main()
