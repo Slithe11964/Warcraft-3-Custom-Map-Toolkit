@@ -1,0 +1,1762 @@
+1.32.0.13369 type minimapicon        extends     handle
+1.30.0.9655 type animtype           extends     handle
+1.30.0.9655 type subanimtype        extends     handle
+1.31.0.11889 type framehandle        extends     agent
+1.31.0.11889 type originframetype    extends     handle
+1.31.0.11889 type framepointtype     extends     handle
+1.31.0.11889 type textaligntype      extends     handle
+1.31.0.11889 type frameeventtype     extends     handle
+1.31.0.11889 type oskeytype          extends     handle
+3.0.0.24268 type metakeytype        extends     handle
+1.31.0.11889 type abilityintegerfield            extends handle
+1.31.0.11889 type abilityrealfield               extends handle
+1.31.0.11889 type abilitybooleanfield            extends handle
+1.31.0.11889 type abilitystringfield             extends handle
+1.31.0.11889 type abilityintegerlevelfield       extends handle
+1.31.0.11889 type abilityreallevelfield          extends handle
+1.31.0.11889 type abilitybooleanlevelfield       extends handle
+1.31.0.11889 type abilitystringlevelfield        extends handle
+1.31.0.11889 type abilityintegerlevelarrayfield  extends handle
+1.31.0.11889 type abilityreallevelarrayfield     extends handle
+1.31.0.11889 type abilitybooleanlevelarrayfield  extends handle
+1.31.0.11889 type abilitystringlevelarrayfield   extends handle
+1.31.0.11889 type unitintegerfield               extends handle
+1.31.0.11889 type unitrealfield                  extends handle
+1.31.0.11889 type unitbooleanfield               extends handle
+1.31.0.11889 type unitstringfield                extends handle
+1.31.0.11889 type unitweaponintegerfield         extends handle
+1.31.0.11889 type unitweaponrealfield            extends handle
+1.31.0.11889 type unitweaponbooleanfield         extends handle
+1.31.0.11889 type unitweaponstringfield          extends handle
+1.31.0.11889 type itemintegerfield               extends handle
+1.31.0.11889 type itemrealfield                  extends handle
+1.31.0.11889 type itembooleanfield               extends handle
+1.31.0.11889 type itemstringfield                extends handle
+1.31.0.11889 type movetype                       extends handle
+1.31.0.11889 type targetflag                     extends handle
+1.31.0.11889 type armortype                      extends handle
+1.31.0.11889 type heroattribute                  extends handle
+1.31.0.11889 type defensetype                    extends handle
+1.31.0.11889 type regentype                      extends handle
+1.31.0.11889 type unitcategory                   extends handle
+1.31.0.11889 type pathingflag                    extends handle
+1.32.0.13369 type commandbuttoneffect            extends handle
+3.0.0.24268 type fogstyle                       extends handle
+3.0.0.24268 type equipmentType                  extends handle
+3.0.0.24268 type itemTag                        extends handle
+3.0.0.24268 type loadoutslot                    extends handle
+1.30.0.9655 constant native ConvertAnimType             takes integer i returns animtype
+1.30.0.9655 constant native ConvertSubAnimType          takes integer i returns subanimtype
+1.31.0.11889 constant native ConvertOriginFrameType      takes integer i returns originframet
+1.31.0.11889 constant native ConvertFramePointType       takes integer i returns framepointty
+1.31.0.11889 constant native ConvertTextAlignType        takes integer i returns textaligntyp
+1.31.0.11889 constant native ConvertFrameEventType       takes integer i returns frameeventty
+1.31.0.11889 constant native ConvertOsKeyType            takes integer i returns oskeytype
+1.31.0.11889 constant native ConvertAbilityIntegerField              takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityRealField                 takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityBooleanField              takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityStringField               takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityIntegerLevelField         takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityRealLevelField            takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityBooleanLevelField         takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityStringLevelField          takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityIntegerLevelArrayField    takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityRealLevelArrayField       takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityBooleanLevelArrayField    takes integer i returns 
+1.31.0.11889 constant native ConvertAbilityStringLevelArrayField     takes integer i returns 
+1.31.0.11889 constant native ConvertUnitIntegerField                 takes integer i returns 
+1.31.0.11889 constant native ConvertUnitRealField                    takes integer i returns 
+1.31.0.11889 constant native ConvertUnitBooleanField                 takes integer i returns 
+1.31.0.11889 constant native ConvertUnitStringField                  takes integer i returns 
+1.31.0.11889 constant native ConvertUnitWeaponIntegerField           takes integer i returns 
+1.31.0.11889 constant native ConvertUnitWeaponRealField              takes integer i returns 
+1.31.0.11889 constant native ConvertUnitWeaponBooleanField           takes integer i returns 
+1.31.0.11889 constant native ConvertUnitWeaponStringField            takes integer i returns 
+1.31.0.11889 constant native ConvertItemIntegerField                 takes integer i returns 
+1.31.0.11889 constant native ConvertItemRealField                    takes integer i returns 
+1.31.0.11889 constant native ConvertItemBooleanField                 takes integer i returns 
+1.31.0.11889 constant native ConvertItemStringField                  takes integer i returns 
+1.31.0.11889 constant native ConvertMoveType                         takes integer i returns 
+1.31.0.11889 constant native ConvertTargetFlag                       takes integer i returns 
+1.31.0.11889 constant native ConvertArmorType                        takes integer i returns 
+1.31.0.11889 constant native ConvertHeroAttribute                    takes integer i returns 
+1.31.0.11889 constant native ConvertDefenseType                      takes integer i returns 
+1.31.0.11889 constant native ConvertRegenType                        takes integer i returns 
+1.31.0.11889 constant native ConvertUnitCategory                     takes integer i returns 
+1.31.0.11889 constant native ConvertPathingFlag                      takes integer i returns 
+3.0.0.24268 constant native ConvertFogStyle                         takes integer i returns 
+3.0.0.24268 constant native ConvertEquipmentType                    takes integer i returns 
+3.0.0.24268 constant native ConvertItemTag                          takes integer i returns 
+3.0.0.24268 constant native ConvertLoadoutSlot                      takes integer i returns 
+3.0.0.24268 constant playercolor        PLAYER_COLOR_BLACK              = ConvertPlayerColor
+1.30.0.9655 constant animtype           ANIM_TYPE_BIRTH                 = ConvertAnimType(0)
+1.30.0.9655 constant animtype           ANIM_TYPE_DEATH                 = ConvertAnimType(1)
+1.30.0.9655 constant animtype           ANIM_TYPE_DECAY                 = ConvertAnimType(2)
+1.30.0.9655 constant animtype           ANIM_TYPE_DISSIPATE             = ConvertAnimType(3)
+1.30.0.9655 constant animtype           ANIM_TYPE_STAND                 = ConvertAnimType(4)
+1.30.0.9655 constant animtype           ANIM_TYPE_WALK                  = ConvertAnimType(5)
+1.30.0.9655 constant animtype           ANIM_TYPE_ATTACK                = ConvertAnimType(6)
+1.30.0.9655 constant animtype           ANIM_TYPE_MORPH                 = ConvertAnimType(7)
+1.30.0.9655 constant animtype           ANIM_TYPE_SLEEP                 = ConvertAnimType(8)
+1.30.0.9655 constant animtype           ANIM_TYPE_SPELL                 = ConvertAnimType(9)
+1.30.0.9655 constant animtype           ANIM_TYPE_PORTRAIT              = ConvertAnimType(10
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_ROOTED             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_ALTERNATE_EX       = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_LOOPING            = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SLAM               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_THROW              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SPIKED             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FAST               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SPIN               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_READY              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_CHANNEL            = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_DEFEND             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_VICTORY            = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_TURN               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_LEFT               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_RIGHT              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FIRE               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FLESH              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_HIT                = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_WOUNDED            = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_LIGHT              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_MODERATE           = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SEVERE             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_CRITICAL           = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_COMPLETE           = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_GOLD               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_LUMBER             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_WORK               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_TALK               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FIRST              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SECOND             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_THIRD              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FOURTH             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FIFTH              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_ONE                = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_TWO                = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_THREE              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FOUR               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FIVE               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SMALL              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_MEDIUM             = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_LARGE              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_UPGRADE            = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_DRAIN              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FILL               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_CHAINLIGHTNING     = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_EATTREE            = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_PUKE               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_FLAIL              = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_OFF                = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_SWIM               = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_ENTANGLE           = ConvertSubAnimType
+1.30.0.9655 constant subanimtype        SUBANIM_TYPE_BERSERK            = ConvertSubAnimType
+3.0.0.24268 constant racepreference     RACE_PREF_FORSAKEN                  = ConvertRacePre
+3.0.0.24268 constant fogstyle           FOG_STYLE_LINEAR                    = ConvertFogStyl
+3.0.0.24268 constant fogstyle           FOG_STYLE_EXP                       = ConvertFogStyl
+3.0.0.24268 constant fogstyle           FOG_STYLE_EXP2                      = ConvertFogStyl
+3.0.0.24268 constant fogstyle           FOG_STYLE_HEIGHT                    = ConvertFogStyl
+3.0.0.24268 constant fogstyle           FOG_STYLE_NEW_EXP                   = ConvertFogStyl
+3.0.0.24268 constant fogstyle           FOG_STYLE_NEW_EXP_2                 = ConvertFogStyl
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_GENERAL         = Conver
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_AMBIENT         = Conver
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_MUSIC           = Conver
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_DIALOGUE        = Conver
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_SOUND_EFFECTS_1 = Conver
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_SOUND_EFFECTS_2 = Conver
+1.32.10.19202 constant volumegroup        SOUND_VOLUMEGROUP_CINEMATIC_SOUND_EFFECTS_3 = Conver
+1.31.0.11889 constant playerunitevent EVENT_PLAYER_UNIT_DAMAGED                  = ConvertPla
+1.31.0.11889 constant playerunitevent EVENT_PLAYER_UNIT_DAMAGING                 = ConvertPla
+1.31.0.11889 constant unitevent EVENT_UNIT_DAMAGING                              = ConvertUni
+1.31.0.11889 constant gameevent          EVENT_GAME_CUSTOM_UI_FRAME              = ConvertGam
+1.31.0.11889 constant playerevent        EVENT_PLAYER_SYNC_DATA                  = ConvertPla
+1.31.0.11889 constant playerevent        EVENT_PLAYER_KEY                        = ConvertPla
+1.31.0.11889 constant playerevent        EVENT_PLAYER_KEY_DOWN                   = ConvertPla
+1.31.0.11889 constant playerevent        EVENT_PLAYER_KEY_UP                     = ConvertPla
+1.32.10.18820 constant playerunitevent    EVENT_PLAYER_UNIT_STACK_ITEM            = ConvertPla
+3.0.0.24268 constant playerunitevent    EVENT_PLAYER_UNIT_EQUIP_ITEM            = ConvertPla
+3.0.0.24268 constant playerunitevent    EVENT_PLAYER_UNIT_UNEQUIP_ITEM          = ConvertPla
+1.32.10.18820 constant unitevent          EVENT_UNIT_STACK_ITEM                   = ConvertUni
+3.0.0.24268 constant unitevent          EVENT_UNIT_EQUIP_ITEM                   = ConvertUni
+3.0.0.24268 constant unitevent          EVENT_UNIT_UNEQUIP_ITEM                 = ConvertUni
+3.0.0.24268 constant itemtype ITEM_TYPE_EQUIPMENT                   = ConvertItemType(7)
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_NONE                  = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_HEAD                  = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_CHEST                 = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_GLOVES                = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_BOOTS                 = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_RING                  = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_PRIMARY               = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_OFFHAND               = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_TRINKET               = ConvertEquipmentTy
+3.0.0.24268 constant equipmentType EQUIPMENT_TYPE_ANY                   = ConvertEquipmentTy
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_UNDEFINED                     = ConvertItemTag(0)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_DROPPABLE                     = ConvertItemTag(1)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_QUESTREWARD                   = ConvertItemTag(2)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_BOSSDROP                      = ConvertItemTag(3)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_SECRET                        = ConvertItemTag(4)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_PUZZLE                        = ConvertItemTag(5)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_WORLD                         = ConvertItemTag(6)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_SHOP                          = ConvertItemTag(7)
+3.0.0.24268 constant itemTag ITEMTAG_TYPE_ANY                           = ConvertItemTag(8)
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_HEAD            = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_CHEST           = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_GLOVES          = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_BOOTS           = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_RING            = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_RINGALT         = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_PRIMARY         = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_OFFHAND         = ConvertLoadoutSlot
+3.0.0.24268 constant loadoutslot EQUIPMENT_LOADOUT_SLOT_TRINKET         = ConvertLoadoutSlot
+1.30.0.9655 constant camerafield CAMERA_FIELD_NEARZ                 = ConvertCameraField(7)
+1.31.0.11889 constant camerafield CAMERA_FIELD_LOCAL_PITCH           = ConvertCameraField(8)
+1.31.0.11889 constant camerafield CAMERA_FIELD_LOCAL_YAW             = ConvertCameraField(9)
+1.31.0.11889 constant camerafield CAMERA_FIELD_LOCAL_ROLL            = ConvertCameraField(10)
+3.0.0.24268 constant camerafield CAMERA_FIELD_DEPTH_OF_FIELD_DISTANCE = ConvertCameraField(1
+3.0.0.24268 constant camerafield CAMERA_FIELD_DEPTH_OF_FIELD_SCALE    = ConvertCameraField(1
+3.0.0.24268 constant camerafield CAMERA_FIELD_ZABSOLUTE               = ConvertCameraField(1
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_GAME_UI                    = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_COMMAND_BUTTON             = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_HERO_BAR                   = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_HERO_BUTTON                = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_HERO_HP_BAR                = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_HERO_MANA_BAR              = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_HERO_BUTTON_INDICATOR      = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_ITEM_BUTTON                = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_MINIMAP                    = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_MINIMAP_BUTTON             = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_SYSTEM_BUTTON              = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_TOOLTIP                    = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_UBERTOOLTIP                = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_CHAT_MSG                   = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_UNIT_MSG                   = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_TOP_MSG                    = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_PORTRAIT                   = Conver
+1.31.0.11889 constant originframetype        ORIGIN_FRAME_WORLD_FRAME                = Conver
+1.32.0.14481 constant originframetype        ORIGIN_FRAME_SIMPLE_UI_PARENT           = Conver
+1.32.0.14481 constant originframetype        ORIGIN_FRAME_PORTRAIT_HP_TEXT           = Conver
+1.32.0.14481 constant originframetype        ORIGIN_FRAME_PORTRAIT_MANA_TEXT         = Conver
+1.32.0.14481 constant originframetype        ORIGIN_FRAME_UNIT_PANEL_BUFF_BAR        = Conver
+1.32.0.14481 constant originframetype        ORIGIN_FRAME_UNIT_PANEL_BUFF_BAR_LABEL  = Conver
+1.31.0.11889 constant framepointtype         FRAMEPOINT_TOPLEFT                   = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_TOP                       = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_TOPRIGHT                  = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_LEFT                      = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_CENTER                    = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_RIGHT                     = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_BOTTOMLEFT                = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_BOTTOM                    = ConvertFr
+1.31.0.11889 constant framepointtype         FRAMEPOINT_BOTTOMRIGHT               = ConvertFr
+1.31.0.11889 constant textaligntype          TEXT_JUSTIFY_TOP                     = ConvertTe
+1.31.0.11889 constant textaligntype          TEXT_JUSTIFY_MIDDLE                  = ConvertTe
+1.31.0.11889 constant textaligntype          TEXT_JUSTIFY_BOTTOM                  = ConvertTe
+1.31.0.11889 constant textaligntype          TEXT_JUSTIFY_LEFT                    = ConvertTe
+1.31.0.11889 constant textaligntype          TEXT_JUSTIFY_CENTER                  = ConvertTe
+1.31.0.11889 constant textaligntype          TEXT_JUSTIFY_RIGHT                   = ConvertTe
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_CONTROL_CLICK             = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_MOUSE_ENTER               = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_MOUSE_LEAVE               = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_MOUSE_UP                  = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_MOUSE_DOWN                = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_MOUSE_WHEEL               = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_CHECKBOX_CHECKED          = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_CHECKBOX_UNCHECKED        = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_EDITBOX_TEXT_CHANGED      = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_POPUPMENU_ITEM_CHANGED    = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_MOUSE_DOUBLECLICK         = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_SPRITE_ANIM_UPDATE        = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_SLIDER_VALUE_CHANGED      = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_DIALOG_CANCEL             = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_DIALOG_ACCEPT             = ConvertFr
+1.31.0.11889 constant frameeventtype         FRAMEEVENT_EDITBOX_ENTER             = ConvertFr
+1.31.0.11889 constant oskeytype              OSKEY_BACKSPACE                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_TAB                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_CLEAR                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_RETURN                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SHIFT                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_CONTROL                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ALT                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PAUSE                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_CAPSLOCK                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_KANA                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_HANGUL                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_JUNJA                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_FINAL                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_HANJA                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_KANJI                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ESCAPE                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_CONVERT                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NONCONVERT                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ACCEPT                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_MODECHANGE                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SPACE                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PAGEUP                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PAGEDOWN                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_END                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_HOME                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LEFT                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_UP                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_RIGHT                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_DOWN                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SELECT                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PRINT                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_EXECUTE                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PRINTSCREEN                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_INSERT                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_DELETE                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_HELP                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_0                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_1                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_2                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_3                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_4                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_5                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_6                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_7                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_8                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_9                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_A                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_B                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_C                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_D                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_E                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_G                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_H                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_I                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_J                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_K                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_L                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_M                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_N                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_O                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_P                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_Q                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_R                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_S                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_T                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_U                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_V                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_W                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_X                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_Y                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_Z                              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LMETA                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_RMETA                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_APPS                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SLEEP                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD0                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD1                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD2                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD3                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD4                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD5                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD6                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD7                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD8                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMPAD9                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_MULTIPLY                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ADD                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SEPARATOR                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SUBTRACT                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_DECIMAL                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_DIVIDE                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F1                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F2                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F3                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F4                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F5                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F6                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F7                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F8                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F9                             = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F10                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F11                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F12                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F13                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F14                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F15                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F16                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F17                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F18                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F19                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F20                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F21                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F22                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F23                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_F24                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NUMLOCK                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_SCROLLLOCK                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_NEC_EQUAL                  = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_FJ_JISHO                   = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_FJ_MASSHOU                 = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_FJ_TOUROKU                 = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_FJ_LOYA                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_FJ_ROYA                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LSHIFT                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_RSHIFT                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LCONTROL                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_RCONTROL                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LALT                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_RALT                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_BACK                   = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_FORWARD                = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_REFRESH                = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_STOP                   = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_SEARCH                 = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_FAVORITES              = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_BROWSER_HOME                   = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_VOLUME_MUTE                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_VOLUME_DOWN                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_VOLUME_UP                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_MEDIA_NEXT_TRACK               = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_MEDIA_PREV_TRACK               = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_MEDIA_STOP                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_MEDIA_PLAY_PAUSE               = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LAUNCH_MAIL                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LAUNCH_MEDIA_SELECT            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LAUNCH_APP1                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_LAUNCH_APP2                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_1                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_PLUS                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_COMMA                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_MINUS                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_PERIOD                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_2                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_3                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_4                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_5                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_6                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_7                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_8                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_AX                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_102                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ICO_HELP                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ICO_00                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PROCESSKEY                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ICO_CLEAR                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PACKET                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_RESET                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_JUMP                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_PA1                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_PA2                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_PA3                        = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_WSCTRL                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_CUSEL                      = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_ATTN                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_FINISH                     = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_COPY                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_AUTO                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_ENLW                       = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_BACKTAB                    = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ATTN                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_CRSEL                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_EXSEL                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_EREOF                          = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PLAY                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_ZOOM                           = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_NONAME                         = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_PA1                            = ConvertOs
+1.31.0.11889 constant oskeytype              OSKEY_OEM_CLEAR                      = ConvertOs
+3.0.0.24268 constant integer                METAKEY_NONE                         = 0
+3.0.0.24268 constant integer                METAKEY_SHIFT                        = 1
+3.0.0.24268 constant integer                METAKEY_CTRL                         = 2
+3.0.0.24268 constant integer                METAKEY_ALT                          = 4
+3.0.0.24268 constant integer                METAKEY_WINKEYS                      = 8
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_NORMAL_X        = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_NORMAL_Y        = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_ACTIVATED_X     = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_ACTIVATED_Y     = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_RESEARCH_X      = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_BUTTON_POSITION_RESEARCH_Y      = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_MISSILE_SPEED                   = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_TARGET_ATTACHMENTS              = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_CASTER_ATTACHMENTS              = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_PRIORITY                        = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_LEVELS                          = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_REQUIRED_LEVEL                  = Conver
+1.31.0.11889 constant abilityintegerfield ABILITY_IF_LEVEL_SKIP_REQUIREMENT          = Conver
+1.31.0.11889 constant abilitybooleanfield ABILITY_BF_HERO_ABILITY                    = Conver
+1.31.0.11889 constant abilitybooleanfield ABILITY_BF_ITEM_ABILITY                    = Conver
+1.31.0.11889 constant abilitybooleanfield ABILITY_BF_CHECK_DEPENDENCIES              = Conver
+1.31.0.11889 constant abilityrealfield ABILITY_RF_ARF_MISSILE_ARC                    = Conver
+1.31.0.11889 constant abilitystringfield ABILITY_SF_NAME                             = Conver
+1.31.0.11889 constant abilitystringfield ABILITY_SF_ICON_ACTIVATED                   = Conver
+1.31.0.11889 constant abilitystringfield ABILITY_SF_ICON_RESEARCH                    = Conver
+1.31.0.11889 constant abilitystringfield ABILITY_SF_EFFECT_SOUND                     = Conver
+1.31.0.11889 constant abilitystringfield ABILITY_SF_EFFECT_SOUND_LOOPING             = Conver
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_COST                         
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_WAVES                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SHARDS                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_UNITS_TELEPORTED        
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_COUNT_HWE2          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_IMAGES                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_CORPSES_RAISED_UAN1     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MORPHING_FLAGS                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_STRENGTH_BONUS_NRG5               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DEFENSE_BONUS_NRG6                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_TARGETS_HIT             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_TYPE_OFS1               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_OSF2     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_EFN1     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_CORPSES_RAISED_HRE1     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_STACK_FLAGS                       
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MINIMUM_NUMBER_OF_UNITS           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_UNITS_NDP3      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_UNITS_CREATED_NRC2      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SHIELD_LIFE                       
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_LOSS_AMS4                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GOLD_PER_INTERVAL_BGM1            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_NUMBER_OF_MINERS              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_CARGO_CAPACITY                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_CREEP_LEVEL_DEV3          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_CREEP_LEVEL_DEV1              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GOLD_PER_INTERVAL_EGM1            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DEFENSE_REDUCTION                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_TYPE_FLA1               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_FLARE_COUNT                       
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_GOLD                          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MINING_CAPACITY                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_CORPSES_GYD1    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DAMAGE_TO_TREE                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_LUMBER_CAPACITY                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GOLD_CAPACITY                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DEFENSE_INCREASE_INF2             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_INTERACTION_TYPE                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GOLD_COST_NDT1                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_LUMBER_COST_NDT2                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_TYPE_NDT3               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_STACKING_TYPE_POI4                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_STACKING_TYPE_POA5                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_CREEP_LEVEL_PLY1          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_CREEP_LEVEL_POS1          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MOVEMENT_UPDATE_FREQUENCY_PRG1    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ATTACK_UPDATE_FREQUENCY_PRG2      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_LOSS_PRG6                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNITS_SUMMONED_TYPE_ONE           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNITS_SUMMONED_TYPE_TWO           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_UNITS_SUMMONED                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ALLOW_WHEN_FULL_REJ3              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_UNITS_CHARGED_TO_CASTER   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_UNITS_AFFECTED            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DEFENSE_INCREASE_ROA2             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_UNITS_ROA7                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ROOTED_WEAPONS                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UPROOTED_WEAPONS                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UPROOTED_DEFENSE_TYPE             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ACCUMULATION_STEP                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_OWLS                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_STACKING_TYPE_SPO4                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_UNITS                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SPIDER_CAPACITY                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_INTERVALS_BEFORE_CHANGING_TREES   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_AGILITY_BONUS                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_INTELLIGENCE_BONUS                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_STRENGTH_BONUS_ISTR               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ATTACK_BONUS                      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DEFENSE_BONUS_IDEF                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMON_1_AMOUNT                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMON_2_AMOUNT                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_EXPERIENCE_GAINED                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_HIT_POINTS_GAINED_IHPG            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_POINTS_GAINED_IMPG           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_HIT_POINTS_GAINED_IHP2            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_POINTS_GAINED_IMP2           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DAMAGE_BONUS_DICE                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ARMOR_PENALTY_IARP                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ENABLED_ATTACK_INDEX_IOB5         
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_LEVELS_GAINED                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_LIFE_GAINED                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_MANA_GAINED                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GOLD_GIVEN                        
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_LUMBER_GIVEN                      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_TYPE_IFA1               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_CREEP_LEVEL_ICRE          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MOVEMENT_SPEED_BONUS              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_HIT_POINTS_REGENERATED_PER_SECOND 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SIGHT_RANGE_BONUS                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DAMAGE_PER_DURATION               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_USED_PER_SECOND              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_EXTRA_MANA_REQUIRED               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_RADIUS_IDET             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_LOSS_PER_UNIT_IDIM           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DAMAGE_TO_SUMMONED_UNITS_IDID     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_UNITS_IREC      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DELAY_AFTER_DEATH_SECONDS         
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_RESTORED_LIFE                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_RESTORED_MANA__1_FOR_CURRENT      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_HIT_POINTS_RESTORED               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MANA_POINTS_RESTORED              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_UNITS_ITPM      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_CORPSES_RAISED_CAD1     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_TERRAIN_DEFORMATION_DURATION_MS   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_UNITS                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_TYPE_DET1               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GOLD_COST_PER_STRUCTURE           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_LUMBER_COST_PER_USE               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DETECTION_TYPE_NSP3               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SWARM_UNITS             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_SWARM_UNITS_PER_TARGET        
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_NBA2     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_CREEP_LEVEL_NCH1          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ATTACKS_PREVENTED                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_TARGETS_EFK3    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_ESV1     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_CORPSES_EXH1    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ITEM_CAPACITY                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_NUMBER_OF_TARGETS_SPL2    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ALLOW_WHEN_FULL_IRL3              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_DISPELLED_UNITS           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_LURES                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NEW_TIME_OF_DAY_HOUR              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NEW_TIME_OF_DAY_MINUTE            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_UNITS_CREATED_MEC1      
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MINIMUM_SPELLS                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_SPELLS                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DISABLED_ATTACK_INDEX             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ENABLED_ATTACK_INDEX_GRA4         
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAXIMUM_ATTACKS                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_BUILDING_TYPES_ALLOWED_NPR1       
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_BUILDING_TYPES_ALLOWED_NSA1       
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ATTACK_MODIFICATION               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_COUNT_NPA5          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UPGRADE_LEVELS                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_SUMMONED_UNITS_NDO2     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_BEASTS_PER_SECOND                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_TARGET_TYPE                       
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_OPTIONS                           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ARMOR_PENALTY_NAB3                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_WAVE_COUNT_NHS6                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_CREEP_LEVEL_NTM3              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MISSILE_COUNT                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SPLIT_ATTACK_COUNT                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_GENERATION_COUNT                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ROCK_RING_COUNT                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_WAVE_COUNT_NVC2                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_PREFER_HOSTILES_TAU1              
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_PREFER_FRIENDLIES_TAU2            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_MAX_UNITS_TAU3                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NUMBER_OF_PULSES                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPE_HWE1           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_UIN4                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_OSF1                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPE_EFNU           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPE_NBAU           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPE_NTOU           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPE_ESVU           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPES               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SUMMONED_UNIT_TYPE_NDOU           
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ALTERNATE_FORM_UNIT_EMEU          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_PLAGUE_WARD_UNIT_TYPE             
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ALLOWED_UNIT_TYPE_BTL1            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_NEW_UNIT_TYPE                     
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_RESULTING_UNIT_TYPE_ENT1          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_CORPSE_UNIT_TYPE                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_ALLOWED_UNIT_TYPE_LOA1            
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNIT_TYPE_FOR_LIMIT_CHECK         
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_WARD_UNIT_TYPE_STAU               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_EFFECT_ABILITY                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_CONVERSION_UNIT                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNIT_TO_PRESERVE                  
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNIT_TYPE_ALLOWED                 
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SWARM_UNIT_TYPE                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_RESULTING_UNIT_TYPE_COAU          
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNIT_TYPE_EXHU                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_WARD_UNIT_TYPE_HWDU               
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_LURE_UNIT_TYPE                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UNIT_TYPE_IPMU                    
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_FACTORY_UNIT_ID                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_SPAWN_UNIT_ID_NFYU                
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_DESTRUCTIBLE_ID                   
+1.31.0.11889 constant abilityintegerlevelfield ABILITY_ILF_UPGRADE_TYPE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CASTING_TIME                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DURATION_NORMAL                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DURATION_HERO                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_COOLDOWN                             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AREA_OF_EFFECT                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CAST_RANGE                           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_HBZ2                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_REDUCTION_HBZ4              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_HBZ5               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_DAMAGE_PER_WAVE              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_REGENERATION_INCREASE           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CASTING_DELAY                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_OWW1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_OWW2          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_CRITICAL_STRIKE            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_MULTIPLIER_OCR2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_OCR3                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_EVADE_OCR4                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_PERCENT_OMI2            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_TAKEN_PERCENT_OMI3            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ANIMATION_DELAY                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_TRANSITION_TIME                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_OWK2 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BACKSTAB_DAMAGE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AMOUNT_HEALED_DAMAGED_UDC1           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_CONVERTED_TO_MANA               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_CONVERTED_TO_LIFE               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_UAU1 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_REGENERATION_INCREASE_PERCENT   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_EVADE_EEV1                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_INTERVAL                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_DRAINED_PER_SECOND_EIM2         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUFFER_MANA_REQUIRED                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_MANA_DRAINED                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BOLT_DELAY                           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BOLT_LIFETIME                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ALTITUDE_ADJUSTMENT_DURATION         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LANDING_DELAY_TIME                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ALTERNATE_FORM_HIT_POINT_BONUS       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVE_SPEED_BONUS_INFO_PANEL_ONLY     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_BONUS_INFO_PANEL_ONLY   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_REGENERATION_RATE_PER_SECOND    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_STUN_DURATION_USL1                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_DAMAGE_STOLEN_PERCENT         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_UCS1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_DAMAGE_UCS2                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DISTANCE_UCS3                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FINAL_AREA_UCS4                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_UIN1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DURATION                             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_IMPACT_DELAY                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_TARGET_OCL1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_REDUCTION_PER_TARGET          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EFFECT_DELAY_OEQ1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_TO_BUILDINGS       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_UNITS_SLOWED_PERCENT                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FINAL_AREA_OEQ4                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_EER1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_TO_ATTACKERS            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_HEALED                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HEAL_INTERVAL                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_REDUCTION_ETQ3              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INITIAL_IMMUNITY_DURATION            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_LIFE_DRAINED_PER_SECOND_PERCENT  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_REDUCTION_UDD2              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ARMOR_DURATION                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ARMOR_BONUS_UFA2                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AREA_OF_EFFECT_DAMAGE                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPECIFIC_TARGET_DAMAGE_UFN2          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_HFA1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_ESF1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_INTERVAL_ESF2                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_REDUCTION_ESF3              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_PERCENT                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEFENSE_BONUS_HAV1                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINT_BONUS                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_HAV3                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_HAV4          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_BASH                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_MULTIPLIER_HBH2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_HBH3                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_MISS_HBH4                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_HTB1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AOE_DAMAGE                           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPECIFIC_TARGET_DAMAGE_HTC2          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_HTC3
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_HTC4  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ARMOR_BONUS_HAD1                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AMOUNT_HEALED_DAMAGED_HHB1           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EXTRA_DAMAGE_HCA1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_HCA2           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_HCA3             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_OAE1 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_INCREASE_PERCENT_OAE2   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_REINCARNATION_DELAY                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_OSH1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_DAMAGE_OSH2                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DISTANCE_OSH3                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FINAL_AREA_OSH4                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_GRAPHIC_DELAY_NFD1                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_GRAPHIC_DURATION_NFD2                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_NFD3                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DAMAGE_AMS1            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_AMS2          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AURA_DURATION                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_APL2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DURATION_OF_PLAGUE_WARD              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AMOUNT_OF_HIT_POINTS_REGENERATED     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_DAMAGE_INCREASE_AKB1          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_LOSS_ADM1                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DAMAGE_ADM2            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EXPANSION_AMOUNT                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INTERVAL_DURATION_BGM2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_RADIUS_OF_MINING_RING                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_INCREASE_PERCENT_BLO1   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_INCREASE_PERCENT_BLO2 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SCALING_FACTOR                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_PER_SECOND_CAN1           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_HIT_POINTS                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_DEV2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_UPDATE_FREQUENCY_CHD1       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_UPDATE_FREQUENCY_CHD2         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DAMAGE_CHD3            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_CRI1
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_CRI2  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_REDUCTION_CRI3                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_MISS_CRS                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_RADIUS_DDA1              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_AMOUNT_DDA2              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_PARTIAL_DAMAGE_RADIUS                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_PARTIAL_DAMAGE_AMOUNT                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_DAMAGE_FACTOR_SDS1          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_DAMAGE_UCO5                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVE_SPEED_BONUS_UCO6                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_TAKEN_PERCENT_DEF1            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_PERCENT_DEF2            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_DEF3           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_DEF4             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_DEF5          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_DEFLECT                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEFLECT_DAMAGE_TAKEN_PIERCING        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEFLECT_DAMAGE_TAKEN_SPELLS          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_RIP_DELAY                            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EAT_DELAY                            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_GAINED_EAT3               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AIR_UNIT_LOWER_DURATION              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AIR_UNIT_HEIGHT                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MELEE_ATTACK_RANGE                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INTERVAL_DURATION_EGM2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EFFECT_DELAY_FLA2                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MINING_DURATION                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_RADIUS_OF_GRAVESTONES                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_RADIUS_OF_CORPSES                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_GAINED_HEA1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_INCREASE_PERCENT_INF1         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AUTOCAST_RANGE                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_REGEN_RATE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_GRAPHIC_DELAY_LIT1                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_GRAPHIC_DURATION_LIT2                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_LSH1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_GAINED                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_GAINED_MBT2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AUTOCAST_REQUIREMENT                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_WATER_HEIGHT                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ACTIVATION_DELAY_MIN1                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INVISIBILITY_TRANSITION_TIME         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ACTIVATION_RADIUS                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AMOUNT_REGENERATED                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_POI1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_POI2             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_POI3           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EXTRA_DAMAGE_POA1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_POA2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_POA3             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_POA4           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_AMPLIFICATION                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_STOMP_PERCENT              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_WAR2                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_RADIUS_WAR3              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HALF_DAMAGE_RADIUS_WAR4              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DAMAGE_PRG3            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_UNIT_PAUSE_DURATION                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HERO_PAUSE_DURATION                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_GAINED_REJ1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_POINTS_GAINED_REJ2              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MINIMUM_LIFE_REQUIRED                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MINIMUM_MANA_REQUIRED                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_REPAIR_COST_RATIO                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_REPAIR_TIME_RATIO                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_POWERBUILD_COST                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_POWERBUILD_RATE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_NAVAL_RANGE_BONUS                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_INCREASE_PERCENT_ROA1         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_REGENERATION_RATE               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_REGEN                           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_INCREASE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SALVAGE_COST_RATIO                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_IN_FLIGHT_SIGHT_RADIUS               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HOVERING_SIGHT_RADIUS                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HOVERING_HEIGHT                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DURATION_OF_OWLS                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FADE_DURATION                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAY_NIGHT_DURATION                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ACTION_DURATION                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_SLO1           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_SLO2             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_SPO1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_SPO2           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_SPO3             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ACTIVATION_DELAY_STA1                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DETECTION_RADIUS_STA2                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DETONATION_RADIUS                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_STUN_DURATION_STA4                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_BONUS_PERCENT           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_UHF2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LUMBER_PER_INTERVAL                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ART_ATTACHMENT_HEIGHT                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_TELEPORT_AREA_WIDTH                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_TELEPORT_AREA_HEIGHT                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_STOLEN_PER_ATTACK               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_IDAM                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_HIT_UNITS_PERCENT          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_HIT_HEROS_PERCENT          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_HIT_SUMMONS_PERCENT        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DELAY_FOR_TARGET_EFFECT              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_PERCENT_OF_NORMAL       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_RECEIVED_MULTIPLIER           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_REGENERATION_BONUS_AS_FRACTION_O
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_INCREASE_ISPI         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_IDPS               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_DAMAGE_INCREASE_CAC1          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_COR1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_INCREASE_ISX1           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_WRS1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_TERRAIN_DEFORMATION_AMPLITUDE        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_CTC1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EXTRA_DAMAGE_TO_TARGET               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_CTC3        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_CTC4          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_CTB1                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CASTING_DELAY_SECONDS                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_LOSS_PER_UNIT_DTN1              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_TO_SUMMONED_UNITS_DTN2        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_TRANSITION_TIME_SECONDS              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_DRAINED_PER_SECOND_NMR1         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_REDUCE_DAMAGE_PERCENT      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MINIMUM_DAMAGE                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_IGNORED_DAMAGE                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_DEALT                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_INTERVAL                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HALF_DAMAGE_DEALT                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HALF_DAMAGE_INTERVAL                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_REDUCTION_HFS5              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_DAMAGE_HFS6                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_PER_HIT_POINT                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_ABSORBED_PERCENT              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_WAVE_DISTANCE                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_WAVE_TIME_SECONDS                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DEALT_UIM3                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AIR_TIME_SECONDS_UIM4                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_UNIT_RELEASE_INTERVAL_SECONDS        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_RETURN_FACTOR                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_RETURN_THRESHOLD              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_RETURNED_DAMAGE_FACTOR               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_RECEIVED_DAMAGE_FACTOR               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEFENSE_BONUS_UTS3                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_NBA1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DURATION_SECONDS_NBA3  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_PER_SUMMONED_HITPOINT           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHARGE_FOR_CURRENT_LIFE              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_DRAINED                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_POINTS_DRAINED                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DRAIN_INTERVAL_SECONDS               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_TRANSFERRED_PER_SECOND          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_TRANSFERRED_PER_SECOND          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BONUS_LIFE_FACTOR                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BONUS_LIFE_DECAY                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BONUS_MANA_FACTOR                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BONUS_MANA_DECAY                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_MISS_PERCENT               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_MODIFIER              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_MODIFIER                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_TDG1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MEDIUM_DAMAGE_RADIUS_TDG2            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MEDIUM_DAMAGE_PER_SECOND             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SMALL_DAMAGE_RADIUS_TDG4             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SMALL_DAMAGE_PER_SECOND              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_AIR_TIME_SECONDS_TSP1                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MINIMUM_HIT_INTERVAL_SECONDS         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_NBF5               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_RANGE                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MINIMUM_RANGE                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_TARGET_EFK1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_TOTAL_DAMAGE                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_SPEED_ADJUSTMENT             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DECAYING_DAMAGE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_FACTOR_ESH2           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_FACTOR_ESH3             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DECAY_POWER                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INITIAL_DAMAGE_ESH5                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_LIFE_ABSORBED                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAXIMUM_MANA_ABSORBED                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_INCREASE_BSK1         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_INCREASE_BSK2           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_TAKEN_INCREASE                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_PER_UNIT                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_PER_UNIT                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_PER_BUFF                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_PER_BUFF                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DAMAGE_DVM5            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_FAK1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MEDIUM_DAMAGE_FACTOR_FAK2            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SMALL_DAMAGE_FACTOR_FAK3             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_RADIUS_FAK4              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HALF_DAMAGE_RADIUS_FAK5              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EXTRA_DAMAGE_PER_SECOND              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_LIQ2        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_LIQ3          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_FACTOR                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_UNIT_DAMAGE_PER_MANA_POINT           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HERO_DAMAGE_PER_MANA_POINT           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_UNIT_MAXIMUM_DAMAGE                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HERO_MAXIMUM_DAMAGE                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_COOLDOWN                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DISTRIBUTED_DAMAGE_FACTOR_SPL1       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_REGENERATED                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_REGENERATED                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_LOSS_PER_UNIT_IDC1              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DAMAGE_IDC2            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ACTIVATION_DELAY_IMO2                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LURE_INTERVAL_SECONDS                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_ISR1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_REDUCTION_ISR2                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_IPV1                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_STEAL_AMOUNT                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_RESTORED_FACTOR                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MANA_RESTORED_FACTOR                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACH_DELAY                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_REMOVE_DELAY                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HERO_REGENERATION_DELAY              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_UNIT_REGENERATION_DELAY              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_NSA4          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HIT_POINTS_PER_SECOND_NSA5           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_TO_SUMMONED_UNITS_IXS1        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAGIC_DAMAGE_REDUCTION_IXS2          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DURATION               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SHIELD_COOLDOWN_TIME                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_NDO1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_UNIT_DURATION_SECONDS_NDO3  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MEDIUM_DAMAGE_RADIUS_FLK1            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SMALL_DAMAGE_RADIUS_FLK2             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_AMOUNT_FLK3              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MEDIUM_DAMAGE_AMOUNT                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SMALL_DAMAGE_AMOUNT                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_HBN1
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_HBN2  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_MANA_DRAINED_UNITS               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_RATIO_UNITS_PERCENT           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_MANA_DRAINED_HEROS               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_RATIO_HEROS_PERCENT           
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SUMMONED_DAMAGE                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DISTRIBUTED_DAMAGE_FACTOR_NCA1       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INITIAL_DAMAGE_PXF1                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_PXF2               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PER_SECOND_MLS1               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BEAST_COLLISION_RADIUS               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_AMOUNT_NST3                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_RADIUS                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_DELAY                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FOLLOW_THROUGH_TIME                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ART_DURATION                         
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_NAB1
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_NAB2  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_PRIMARY_DAMAGE                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SECONDARY_DAMAGE                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_INTERVAL_NAB6                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_GOLD_COST_FACTOR                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LUMBER_COST_FACTOR                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVE_SPEED_BONUS_NEG1                
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_BONUS_NEG2                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_AMOUNT_NCS1                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_INTERVAL_NCS2                 
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_DAMAGE_NCS4                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_DAMAGE_FACTOR_NCS5          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_EFFECT_DURATION                      
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPAWN_INTERVAL_NSY1                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPAWN_UNIT_DURATION                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPAWN_UNIT_OFFSET                    
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LEASH_RANGE_NSY5                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPAWN_INTERVAL_NFY1                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LEASH_RANGE_NFY2                     
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_CHANCE_TO_DEMOLISH                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_MULTIPLIER_BUILDINGS          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_MULTIPLIER_UNITS              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_MULTIPLIER_HEROES             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BONUS_DAMAGE_MULTIPLIER              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEATH_DAMAGE_FULL_AMOUNT             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEATH_DAMAGE_FULL_AREA               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEATH_DAMAGE_HALF_AMOUNT             
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEATH_DAMAGE_HALF_AREA               
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DEATH_DAMAGE_DELAY                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_AMOUNT_NSO1                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PERIOD                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_DAMAGE_PENALTY                       
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MOVEMENT_SPEED_REDUCTION_PERCENT_NSO4
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_ATTACK_SPEED_REDUCTION_PERCENT_NSO5  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_SPLIT_DELAY                          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_MAX_HITPOINT_FACTOR                  
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_LIFE_DURATION_SPLIT_BONUS            
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_WAVE_INTERVAL                        
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_BUILDING_DAMAGE_FACTOR_NVC4          
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_FULL_DAMAGE_AMOUNT_NVC5              
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_HALF_DAMAGE_FACTOR                   
+1.31.0.11889 constant abilityreallevelfield ABILITY_RLF_INTERVAL_BETWEEN_PULSES              
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PERCENT_BONUS_HAB2            = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_USE_TELEPORT_CLUSTERING_HMT3  = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_NEVER_MISS_OCR5               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_EXCLUDE_ITEM_DAMAGE           = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_BACKSTAB_DAMAGE               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_INHERIT_UPGRADES_UAN3         = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_MANA_CONVERSION_AS_PERCENT    = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_LIFE_CONVERSION_AS_PERCENT    = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_LEAVE_TARGET_ALIVE            = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PERCENT_BONUS_UAU3            = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_DAMAGE_IS_PERCENT_RECEIVED    = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_MELEE_BONUS                   = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_RANGED_BONUS                  = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_FLAT_BONUS                    = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_NEVER_MISS_HBH5               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PERCENT_BONUS_HAD2            = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CAN_DEACTIVATE                = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_RAISED_UNITS_ARE_INVULNERABLE = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PERCENTAGE_OAR2               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_SUMMON_BUSY_UNITS             = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CREATES_BLIGHT                = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_EXPLODES_ON_DEATH             = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ALWAYS_AUTOCAST_FAE2          = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_REGENERATE_ONLY_AT_NIGHT      = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_SHOW_SELECT_UNIT_BUTTON       = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_SHOW_UNIT_INDICATOR           = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CHARGE_OWNING_PLAYER          = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PERCENTAGE_ARM2               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_TARGET_IS_INVULNERABLE        = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_TARGET_IS_MAGIC_IMMUNE        = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_KILL_ON_CASTER_DEATH          = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_NO_TARGET_REQUIRED_REJ4       = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ACCEPTS_GOLD                  = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ACCEPTS_LUMBER                = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PREFER_HOSTILES_ROA5          = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_PREFER_FRIENDLIES_ROA6        = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ROOTED_TURNING                = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ALWAYS_AUTOCAST_SLO3          = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_HIDE_BUTTON                   = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_USE_TELEPORT_CLUSTERING_ITP2  = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_IMMUNE_TO_MORPH_EFFECTS       = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_DOES_NOT_BLOCK_BUILDINGS      = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_AUTO_ACQUIRE_ATTACK_TARGETS   = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_IMMUNE_TO_MORPH_EFFECTS_GHO2  = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_DO_NOT_BLOCK_BUILDINGS        = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_INCLUDE_RANGED_DAMAGE         = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_INCLUDE_MELEE_DAMAGE          = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_MOVE_TO_PARTNER               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CAN_BE_DISPELLED              = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_IGNORE_FRIENDLY_BUFFS         = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_DROP_ITEMS_ON_DEATH           = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CAN_USE_ITEMS                 = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CAN_GET_ITEMS                 = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CAN_DROP_ITEMS                = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_REPAIRS_ALLOWED               = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_CASTER_ONLY_SPLASH            = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_NO_TARGET_REQUIRED_IRL4       = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_DISPEL_ON_ATTACK              = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_AMOUNT_IS_RAW_VALUE           = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_SHARED_SPELL_COOLDOWN         = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_SLEEP_ONCE                    = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ALLOW_ON_ANY_PLAYER_SLOT      = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_DISABLE_OTHER_ABILITIES       = Co
+1.31.0.11889 constant abilitybooleanlevelfield ABILITY_BLF_ALLOW_BOUNTY                  = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ICON_NORMAL                    = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_CASTER                         = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TARGET                         = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_SPECIAL                        = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_EFFECT                         = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_AREA_EFFECT                    = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_LIGHTNING_EFFECTS              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_MISSILE_ART                    = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TOOLTIP_LEARN                  = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TOOLTIP_LEARN_EXTENDED         = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TOOLTIP_NORMAL                 = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TOOLTIP_TURN_OFF               = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TOOLTIP_NORMAL_EXTENDED        = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_TOOLTIP_TURN_OFF_EXTENDED      = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_NORMAL_FORM_UNIT_EME1          = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_SPAWNED_UNITS                  = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ABILITY_FOR_UNIT_CREATION      = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_NORMAL_FORM_UNIT_MIL1          = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ALTERNATE_FORM_UNIT_MIL2       = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_BASE_ORDER_ID_ANS5             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_MORPH_UNITS_GROUND             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_MORPH_UNITS_AIR                = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_MORPH_UNITS_AMPHIBIOUS         = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_MORPH_UNITS_WATER              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_UNIT_TYPE_ONE                  = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_UNIT_TYPE_TWO                  = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_UNIT_TYPE_SOD2                 = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_SUMMON_1_UNIT_TYPE             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_SUMMON_2_UNIT_TYPE             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_RACE_TO_CONVERT                = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_PARTNER_UNIT_TYPE              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_PARTNER_UNIT_TYPE_ONE          = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_PARTNER_UNIT_TYPE_TWO          = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_REQUIRED_UNIT_TYPE             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_CONVERTED_UNIT_TYPE            = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_SPELL_LIST                     = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_BASE_ORDER_ID_SPB5             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_BASE_ORDER_ID_NCL6             = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ABILITY_UPGRADE_1              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ABILITY_UPGRADE_2              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ABILITY_UPGRADE_3              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_ABILITY_UPGRADE_4              = Co
+1.31.0.11889 constant abilitystringlevelfield ABILITY_SLF_SPAWN_UNIT_ID_NSY2             = Co
+1.31.0.11889 constant itemintegerfield ITEM_IF_LEVEL                 = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_NUMBER_OF_CHARGES     = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_COOLDOWN_GROUP        = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_MAX_HIT_POINTS        = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_HIT_POINTS            = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_PRIORITY              = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_ARMOR_TYPE            = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_TINTING_COLOR_RED     = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_TINTING_COLOR_GREEN   = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_TINTING_COLOR_BLUE    = ConvertItemIntegerFiel
+1.31.0.11889 constant itemintegerfield ITEM_IF_TINTING_COLOR_ALPHA   = ConvertItemIntegerFiel
+1.31.0.11889 constant itemrealfield ITEM_RF_SCALING_VALUE            = ConvertItemRealField('
+1.31.0.11889 constant itembooleanfield ITEM_BF_DROPPED_WHEN_CARRIER_DIES         = ConvertIte
+1.31.0.11889 constant itembooleanfield ITEM_BF_CAN_BE_DROPPED                    = ConvertIte
+1.31.0.11889 constant itembooleanfield ITEM_BF_PERISHABLE                        = ConvertIte
+1.31.0.11889 constant itembooleanfield ITEM_BF_INCLUDE_AS_RANDOM_CHOICE          = ConvertIte
+1.31.0.11889 constant itembooleanfield ITEM_BF_USE_AUTOMATICALLY_WHEN_ACQUIRED   = ConvertIte
+1.31.0.11889 constant itembooleanfield ITEM_BF_CAN_BE_SOLD_TO_MERCHANTS          = ConvertIte
+1.31.0.11889 constant itembooleanfield ITEM_BF_ACTIVELY_USED                     = ConvertIte
+1.31.0.11889 constant itemstringfield ITEM_SF_MODEL_USED                         = ConvertIte
+1.31.0.11889 constant unitintegerfield UNIT_IF_DEFENSE_TYPE                          = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_ARMOR_TYPE                            = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_LOOPING_FADE_IN_RATE                  = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_LOOPING_FADE_OUT_RATE                 = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_AGILITY                               = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_INTELLIGENCE                          = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_STRENGTH                              = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_AGILITY_PERMANENT                     = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_INTELLIGENCE_PERMANENT                = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_STRENGTH_PERMANENT                    = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_AGILITY_WITH_BONUS                    = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_INTELLIGENCE_WITH_BONUS               = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_STRENGTH_WITH_BONUS                   = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_GOLD_BOUNTY_AWARDED_NUMBER_OF_DICE    = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_GOLD_BOUNTY_AWARDED_BASE              = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_GOLD_BOUNTY_AWARDED_SIDES_PER_DIE     = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_LUMBER_BOUNTY_AWARDED_NUMBER_OF_DICE  = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_LUMBER_BOUNTY_AWARDED_BASE            = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_LUMBER_BOUNTY_AWARDED_SIDES_PER_DIE   = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_LEVEL                                 = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_FORMATION_RANK                        = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_ORIENTATION_INTERPOLATION             = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_ELEVATION_SAMPLE_POINTS               = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_TINTING_COLOR_RED                     = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_TINTING_COLOR_GREEN                   = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_TINTING_COLOR_BLUE                    = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_TINTING_COLOR_ALPHA                   = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_MOVE_TYPE                             = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_TARGETED_AS                           = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_UNIT_CLASSIFICATION                   = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_HIT_POINTS_REGENERATION_TYPE          = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_PLACEMENT_PREVENTED_BY                = Conver
+1.31.0.11889 constant unitintegerfield UNIT_IF_PRIMARY_ATTRIBUTE                     = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_STRENGTH_PER_LEVEL                       = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_AGILITY_PER_LEVEL                        = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_INTELLIGENCE_PER_LEVEL                   = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_HIT_POINTS_REGENERATION_RATE             = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_MANA_REGENERATION                        = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_DEATH_TIME                               = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_FLY_HEIGHT                               = Conver
+2.0.3.22904 constant unitrealfield UNIT_RF_FLY_MAX_HEIGHT                           = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_TURN_RATE                                = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_ELEVATION_SAMPLE_RADIUS                  = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_FOG_OF_WAR_SAMPLE_RADIUS                 = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_MAXIMUM_PITCH_ANGLE_DEGREES              = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_MAXIMUM_ROLL_ANGLE_DEGREES               = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SCALING_VALUE                            = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_ANIMATION_RUN_SPEED                      = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SELECTION_SCALE                          = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SELECTION_CIRCLE_HEIGHT                  = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SHADOW_IMAGE_HEIGHT                      = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SHADOW_IMAGE_WIDTH                       = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SHADOW_IMAGE_CENTER_X                    = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SHADOW_IMAGE_CENTER_Y                    = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_ANIMATION_WALK_SPEED                     = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_DEFENSE                                  = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SIGHT_RADIUS                             = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_PRIORITY                                 = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_SPEED                                    = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_OCCLUDER_HEIGHT                          = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_HP                                       = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_MANA                                     = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_ACQUISITION_RANGE                        = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_CAST_BACK_SWING                          = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_CAST_POINT                               = Conver
+1.31.0.11889 constant unitrealfield UNIT_RF_MINIMUM_ATTACK_RANGE                     = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_RAISABLE                              = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_DECAYABLE                             = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_IS_A_BUILDING                         = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_USE_EXTENDED_LINE_OF_SIGHT            = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_NEUTRAL_BUILDING_SHOWS_MINIMAP_ICON   = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_HERO_HIDE_HERO_INTERFACE_ICON         = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_HERO_HIDE_HERO_MINIMAP_DISPLAY        = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_HERO_HIDE_HERO_DEATH_MESSAGE          = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_HIDE_MINIMAP_DISPLAY                  = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_SCALE_PROJECTILES                     = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_SELECTION_CIRCLE_ON_WATER             = Conver
+1.31.0.11889 constant unitbooleanfield UNIT_BF_HAS_WATER_SHADOW                      = Conver
+3.0.0.24268 constant unitbooleanfield UNIT_BF_SHOW_AIR_TO_GROUND                    = Conver
+3.0.0.24268 constant unitbooleanfield UNIT_BF_FORCE_DISPLAY_HP                      = Conver
+1.31.0.11889 constant unitstringfield UNIT_SF_NAME                   = ConvertUnitStringField
+1.31.0.11889 constant unitstringfield UNIT_SF_PROPER_NAMES           = ConvertUnitStringField
+1.31.0.11889 constant unitstringfield UNIT_SF_GROUND_TEXTURE         = ConvertUnitStringField
+1.31.0.11889 constant unitstringfield UNIT_SF_SHADOW_IMAGE_UNIT      = ConvertUnitStringField
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_DAMAGE_NUMBER_OF_DICE     
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_DAMAGE_BASE               
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_DAMAGE_SIDES_PER_DIE      
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_MAXIMUM_NUMBER_OF_TARGETS 
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_ATTACK_TYPE               
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_WEAPON_SOUND              
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_AREA_OF_EFFECT_TARGETS    
+1.31.0.11889 constant unitweaponintegerfield UNIT_WEAPON_IF_ATTACK_TARGETS_ALLOWED           
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_BACKSWING_POINT              
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_DAMAGE_POINT                 
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_BASE_COOLDOWN                
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_DAMAGE_LOSS_FACTOR           
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_DAMAGE_FACTOR_MEDIUM         
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_DAMAGE_FACTOR_SMALL          
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_DAMAGE_SPILL_DISTANCE        
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_DAMAGE_SPILL_RADIUS          
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_PROJECTILE_SPEED             
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_PROJECTILE_ARC               
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_AREA_OF_EFFECT_FULL_DAMAGE   
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_AREA_OF_EFFECT_MEDIUM_DAMAGE 
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_AREA_OF_EFFECT_SMALL_DAMAGE  
+1.31.0.11889 constant unitweaponrealfield UNIT_WEAPON_RF_ATTACK_RANGE                        
+1.31.0.11889 constant unitweaponbooleanfield UNIT_WEAPON_BF_ATTACK_SHOW_UI                   
+1.31.0.11889 constant unitweaponbooleanfield UNIT_WEAPON_BF_ATTACKS_ENABLED                  
+1.31.0.11889 constant unitweaponbooleanfield UNIT_WEAPON_BF_ATTACK_PROJECTILE_HOMING_ENABLED 
+1.31.0.11889 constant unitweaponstringfield UNIT_WEAPON_SF_ATTACK_PROJECTILE_ART             
+1.31.0.11889 constant movetype       MOVE_TYPE_UNKNOWN               = ConvertMoveType(0)
+1.31.0.11889 constant movetype       MOVE_TYPE_FOOT                  = ConvertMoveType(1)
+1.31.0.11889 constant movetype       MOVE_TYPE_FLY                   = ConvertMoveType(2)
+1.31.0.11889 constant movetype       MOVE_TYPE_HORSE                 = ConvertMoveType(4)
+1.31.0.11889 constant movetype       MOVE_TYPE_HOVER                 = ConvertMoveType(8)
+1.31.0.11889 constant movetype       MOVE_TYPE_FLOAT                 = ConvertMoveType(16)
+1.31.0.11889 constant movetype       MOVE_TYPE_AMPHIBIOUS            = ConvertMoveType(32)
+1.31.0.11889 constant movetype       MOVE_TYPE_UNBUILDABLE           = ConvertMoveType(64)
+1.31.0.11889 constant targetflag     TARGET_FLAG_NONE                = ConvertTargetFlag(1)
+1.31.0.11889 constant targetflag     TARGET_FLAG_GROUND              = ConvertTargetFlag(2)
+1.31.0.11889 constant targetflag     TARGET_FLAG_AIR                 = ConvertTargetFlag(4)
+1.31.0.11889 constant targetflag     TARGET_FLAG_STRUCTURE           = ConvertTargetFlag(8)
+1.31.0.11889 constant targetflag     TARGET_FLAG_WARD                = ConvertTargetFlag(16)
+1.31.0.11889 constant targetflag     TARGET_FLAG_ITEM                = ConvertTargetFlag(32)
+1.31.0.11889 constant targetflag     TARGET_FLAG_TREE                = ConvertTargetFlag(64)
+1.31.0.11889 constant targetflag     TARGET_FLAG_WALL                = ConvertTargetFlag(128)
+1.31.0.11889 constant targetflag     TARGET_FLAG_DEBRIS              = ConvertTargetFlag(256)
+1.31.0.11889 constant targetflag     TARGET_FLAG_DECORATION          = ConvertTargetFlag(512)
+1.31.0.11889 constant targetflag     TARGET_FLAG_BRIDGE              = ConvertTargetFlag(1024
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_LIGHT              = ConvertDefenseType(0)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_MEDIUM             = ConvertDefenseType(1)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_LARGE              = ConvertDefenseType(2)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_FORT               = ConvertDefenseType(3)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_NORMAL             = ConvertDefenseType(4)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_HERO               = ConvertDefenseType(5)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_DIVINE             = ConvertDefenseType(6)
+1.31.0.11889 constant defensetype    DEFENSE_TYPE_NONE               = ConvertDefenseType(7)
+1.31.0.11889 constant heroattribute  HERO_ATTRIBUTE_STR              = ConvertHeroAttribute(1
+1.31.0.11889 constant heroattribute  HERO_ATTRIBUTE_INT              = ConvertHeroAttribute(2
+1.31.0.11889 constant heroattribute  HERO_ATTRIBUTE_AGI              = ConvertHeroAttribute(3
+1.31.0.11889 constant armortype      ARMOR_TYPE_WHOKNOWS             = ConvertArmorType(0)
+1.31.0.11889 constant armortype      ARMOR_TYPE_FLESH                = ConvertArmorType(1)
+1.31.0.11889 constant armortype      ARMOR_TYPE_METAL                = ConvertArmorType(2)
+1.31.0.11889 constant armortype      ARMOR_TYPE_WOOD                 = ConvertArmorType(3)
+1.31.0.11889 constant armortype      ARMOR_TYPE_ETHREAL              = ConvertArmorType(4)
+1.31.0.11889 constant armortype      ARMOR_TYPE_STONE                = ConvertArmorType(5)
+1.31.0.11889 constant regentype      REGENERATION_TYPE_NONE          = ConvertRegenType(0)
+1.31.0.11889 constant regentype      REGENERATION_TYPE_ALWAYS        = ConvertRegenType(1)
+1.31.0.11889 constant regentype      REGENERATION_TYPE_BLIGHT        = ConvertRegenType(2)
+1.31.0.11889 constant regentype      REGENERATION_TYPE_DAY           = ConvertRegenType(3)
+1.31.0.11889 constant regentype      REGENERATION_TYPE_NIGHT         = ConvertRegenType(4)
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_GIANT             = ConvertUnitCategory(1)
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_UNDEAD            = ConvertUnitCategory(2)
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_SUMMONED          = ConvertUnitCategory(4)
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_MECHANICAL        = ConvertUnitCategory(8)
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_PEON              = ConvertUnitCategory(16
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_SAPPER            = ConvertUnitCategory(32
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_TOWNHALL          = ConvertUnitCategory(64
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_ANCIENT           = ConvertUnitCategory(12
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_NEUTRAL           = ConvertUnitCategory(25
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_WARD              = ConvertUnitCategory(51
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_STANDON           = ConvertUnitCategory(10
+1.31.0.11889 constant unitcategory   UNIT_CATEGORY_TAUREN            = ConvertUnitCategory(20
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNWALKABLE             = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNFLYABLE              = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNBUILDABLE            = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNPEONHARVEST          = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_BLIGHTED               = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNFLOATABLE            = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNAMPHIBIOUS           = ConvertPathingFlag
+1.31.0.11889 constant pathingflag    PATHING_FLAG_UNITEMPLACABLE         = ConvertPathingFlag
+1.32.0.14411 constant native MathRound takes real r returns integer
+1.32.0.13369 native SetEnemyStartLocPrioCount    takes integer whichStartLoc, integer prioSlo
+1.32.0.13369 native SetEnemyStartLocPrio         takes integer whichStartLoc, integer prioSlo
+3.0.0.24268 native SetPlayerRaceSkin        takes player whichPlayer, racepreference whichRa
+1.31.0.11889 native BlzGroupAddGroupFast                 takes group whichGroup, group addGro
+1.31.0.11889 native BlzGroupRemoveGroupFast              takes group whichGroup, group remove
+1.31.0.11889 native BlzGroupGetSize                      takes group whichGroup returns integ
+1.31.0.11889 native BlzGroupUnitAt                       takes group whichGroup, integer inde
+1.31.0.11889 native BlzForceHasPlayer        takes force whichForce, player whichPlayer retur
+1.32.0.13369 constant native ParseTags               takes string taggedString returns string
+1.32.0.13369 native TriggerRegisterCommandEvent takes trigger whichTrigger, integer whichAbil
+1.32.0.13369 native TriggerRegisterUpgradeCommandEvent takes trigger whichTrigger, integer wh
+3.0.0.24268 constant native GetEquippedItem     takes nothing returns item
+3.0.0.24268 constant native GetUnequippedItem   takes nothing returns item
+1.32.10.18820 constant native BlzGetAbsorbingItem takes nothing returns item
+1.32.10.18820 constant native BlzGetManipulatedItemWasAbsorbed takes nothing returns boolean
+1.32.10.18820 constant native BlzGetStackingItemSource takes nothing returns item
+1.32.10.18820 constant native BlzGetStackingItemTarget takes nothing returns item
+1.32.10.18820 constant native BlzGetStackingItemTargetPreviousCharges takes nothing returns in
+3.0.0.24268 native BlzTriggerIsRunning     takes trigger whichTrigger returns boolean
+3.0.0.24268 native BlzTriggerInterrupt     takes trigger whichTrigger returns nothing
+3.0.0.24268 native          SetDestructableColor        takes destructable d, playercolor co
+3.0.0.24268 native          SetItemColor takes item whichItem, playercolor whichColor return
+3.0.0.24268 native          IsItemEquipped  takes item whichItem returns boolean
+3.0.0.24268 native          IsItemInBag     takes item whichItem returns boolean
+3.0.0.24268 native          GetItemEquipmentType takes item whichItem returns equipmentType
+3.0.0.24268 native          GetItemTag           takes item whichItem returns itemTag
+3.0.0.24268 native          AllowHeroGlowOnUnit         takes unit whichUnit returns nothing
+3.0.0.24268 native          DisallowHeroGlowOnUnit      takes unit whichUnit returns nothing
+3.0.0.24268 native          HeroGlowIsAllowedOnUnit     takes unit whichUnit returns boolean
+3.0.0.24268 native          BlzGetUnitAnimationDuration        takes unit whichUnit, string 
+3.0.0.24268 native          BlzGetUnitAnimationDurationByIndex takes unit whichUnit, integer
+3.0.0.24268 native          UnitEquipItem           takes unit whichUnit, item whichItem ret
+3.0.0.24268 native          UnitUnequipItem         takes unit whichUnit, item whichItem ret
+3.0.0.24268 native          UnitUnequipItemFromSlot takes unit whichUnit, loadoutslot slot r
+3.0.0.24268 native          UnitHasItemBagged       takes unit whichUnit, item whichItem ret
+3.0.0.24268 native          UnitExtendedInventorySize takes unit whichUnit returns integer
+3.0.0.24268 native          UnitItemInBagSlot               takes unit whichUnit, integer it
+3.0.0.24268 native          UnitItemInEquipmentSlot         takes unit whichUnit, loadoutslo
+3.0.0.24268 native          UnitHasItemEquipped             takes unit whichUnit, item which
+3.0.0.24268 native          UnitHasLoadoutSlotEmpty         takes unit whichUnit, loadoutslo
+3.0.0.24268 native          UnitHasAnyItemEquiped           takes unit whichUnit returns boo
+3.0.0.24268 native          UnitHasItemEquipmentOfType      takes unit whichUnit, equipmentT
+3.0.0.24268 native          UnitCanEquipItemOfEquipmentType takes unit whichUnit, equipmentT
+1.32.0.13369 constant native GetPlayerHandicapReviveTime takes player whichPlayer returns rea
+1.32.0.13369 constant native GetPlayerHandicapDamage takes player whichPlayer returns real
+1.32.0.13369 constant native SetPlayerHandicapReviveTime takes player whichPlayer, real handi
+1.32.0.13369 constant native SetPlayerHandicapDamage takes player whichPlayer, real handicap 
+1.32.0.13369 native          SetMaxCheckpointSaves  	takes integer maxCheckpointSaves returns
+1.32.0.13369 native          SaveGameCheckpoint  	takes string saveFileName, boolean showWind
+1.31.0.11889 native  SaveFrameHandle					takes hashtable table, integer parentKey, integer ch
+1.31.0.11889 native  LoadFrameHandle				takes hashtable table, integer parentKey, integer chi
+3.0.0.24268 native ChooseRandomItemExWithFilter takes itemtype whichType, integer level, equ
+3.0.0.24268 native SetTerrainFogExV             takes integer style, real zstart, real zend,
+3.0.0.24268 native BlzSetTerrainFogStyle        takes fogstyle style returns nothing
+3.0.0.24268 native BlzSetTerrainFogZStart       takes real zStart returns nothing
+3.0.0.24268 native BlzSetTerrainFogZEnd         takes real ZEnd returns nothing
+3.0.0.24268 native BlzSetTerrainFogDensity      takes real density returns nothing
+3.0.0.24268 native BlzSetTerrainFogHeightStart  takes real heightStart returns nothing
+3.0.0.24268 native BlzSetTerrainFogHeightEnd    takes real heightEnd returns nothing
+3.0.0.24268 native BlzSetTerrainFogLinearStart  takes real linearStart returns nothing
+3.0.0.24268 native BlzSetTerrainFogLinearEnd    takes real linearEnd returns nothing
+3.0.0.24268 native BlzSetTerrainFogMaxLinearDensity takes real maxLinearDensity returns noth
+3.0.0.24268 native BlzSetTerrainFogDrawOverSky  takes boolean drawOverSky returns nothing
+3.0.0.24268 native BlzSetTerrainFogColor        takes real red, real green, real blue return
+1.32.0.13369 native SetPortraitLight             takes string portraitDNCFile returns nothing
+1.32.0.13369 native CreateMinimapIconOnUnit      takes unit whichUnit, integer red, integer g
+1.32.0.13369 native CreateMinimapIconAtLoc       takes location where, integer red, integer g
+1.32.0.13369 native CreateMinimapIcon            takes real x, real y, integer red, integer g
+1.32.0.13369 native SkinManagerGetLocalPath      takes string key returns string
+1.32.0.13369 native DestroyMinimapIcon           takes minimapicon pingId returns nothing
+1.32.0.13369 native SetMinimapIconVisible        takes minimapicon whichMinimapIcon, boolean 
+1.32.0.13369 native SetMinimapIconOrphanDestroy  takes minimapicon whichMinimapIcon, boolean 
+3.0.0.24268 native BlzGetModelCinematicGameShotCount  takes nothing returns integer
+3.0.0.24268 native BlzGetModelCinematicGameCurrentShot  takes nothing returns integer
+3.0.0.24268 native BlzGetModelCinematicGameRemainingTime  takes nothing returns real
+3.0.0.24268 native BlzPlayModelCinematicGameAtPosition  takes string modelName, real posX, r
+3.0.0.24268 native BlzSetCinematicEnabledDE     takes boolean enable returns nothing
+3.0.0.24268 native BlzSetMinShadowCastingPointLightCount takes integer count returns nothing
+3.0.0.24268 native BlzGetMinShadowCastingPointLightCount takes nothing returns integer
+3.0.0.24268 native SetCameraFieldControlledByInput takes camerafield whichField, boolean con
+3.0.0.24268 native GetCameraFieldControlledByInput takes camerafield whichField returns bool
+3.0.0.24268 native BlzCameraSetCameraType       takes integer cameraType returns nothing
+3.0.0.24268 native BlzCameraGetCameraType       takes nothing returns integer
+1.32.0.13369 native BlzCameraSetupSetLabel               takes camerasetup whichSetup, string
+1.32.0.13369 native BlzCameraSetupGetLabel               takes camerasetup whichSetup returns
+3.0.0.24268 native BlzCameraSetupSetCameraType          takes camerasetup whichSetup, intege
+3.0.0.24268 native BlzCameraSetupGetCameraType          takes camerasetup whichSetup returns
+1.32.0.13369 native CameraSetFocalDistance			takes real distance returns nothing
+1.32.0.13369 native CameraSetDepthOfFieldScale       takes real scale returns nothing
+1.32.0.14411 native SetCinematicAudio                takes boolean cinematicAudio returns not
+3.0.0.24268 native EnableCameraBlocker              takes rect r, boolean flag returns nothi
+3.0.0.24268 native AddCameraBlocker                 takes rect where returns nothing
+1.32.10.19202 native StartSoundEx                 takes sound soundHandle, boolean fadeIn retu
+3.0.0.24268 native BlzPauseThematicMusicOnFocusLost takes boolean pause returns nothing
+1.32.1.14604 native SetThematicMusicVolume       takes integer volume returns nothing
+1.32.0.13369 native SetSoundFacialAnimationLabel takes sound soundHandle, string animationLab
+1.32.0.13369 native SetSoundFacialAnimationGroupLabel takes sound soundHandle, string groupLa
+1.32.0.13369 native SetSoundFacialAnimationSetFilepath takes sound soundHandle, string animat
+1.32.0.13369 native SetDialogueSpeakerNameKey    takes sound soundHandle, string speakerName 
+1.32.0.13369 native GetDialogueSpeakerNameKey    takes sound soundHandle returns string
+1.32.0.13369 native SetDialogueTextKey           takes sound soundHandle, string dialogueText
+1.32.0.13369 native GetDialogueTextKey           takes sound soundHandle returns string
+3.0.0.24268 native SetHDWaterParams             	takes integer red, integer green, integer b
+3.0.0.24268 native SetHDWaterParamsEx           	takes integer red, integer green, integer b
+3.0.0.24268 native BlzSetHDWaterColor   			takes integer red, integer green, integer blue re
+3.0.0.24268 native BlzSetHDWaterColorOverride   	takes boolean override returns nothing
+3.0.0.24268 native BlzSetHDWaterVertexDisplacement  takes integer vertexDisplacement returns
+3.0.0.24268 native BlzSetHDWaterMinOpacity     		takes integer minOpacity returns nothing
+3.0.0.24268 native BlzSetHDWaterMaxOpacity  		takes integer maxOpacity returns nothing
+3.0.0.24268 native BlzSetHDWaterReflectivity    	takes integer reflectivity returns nothing
+3.0.0.24268 native BlzSetHDWaterEmissivity  		takes integer emissivity returns nothing
+3.0.0.24268 native BlzSetHDWaterEdgeSoftness    	takes integer edgeSoftness returns nothing
+3.0.0.24268 native BlzSetHDWaterWaveStrength 		takes integer waveStrength returns nothing
+3.0.0.24268 native BlzSetHDWaterEnvMapStrength  		takes integer envMapStrengthy returns noth
+3.0.0.24268 native BlzIsTerrainPathableEx       	takes real x, real y, pathingtype t returns
+3.0.0.24268 native BlzSetSingleDoodadAnimation  takes integer index, string animName, boolea
+3.0.0.24268 native SetDoodadColor               takes real x, real y, real radius, integer d
+3.0.0.24268 native SetDoodadColorRect           takes rect r, integer doodadID, playercolor 
+3.0.0.24268 native BlzSetSingleDoodadColor      takes integer index, playercolor whichColor 
+3.0.0.24268 native BlzGetDoodadX                takes integer index returns real
+3.0.0.24268 native BlzGetDoodadY                takes integer index returns real
+3.0.0.24268 native BlzGetDoodadZ                takes integer index returns real
+3.0.0.24268 native BlzGetDoodadScaleX           takes integer index returns real
+3.0.0.24268 native BlzGetDoodadScaleY           takes integer index returns real
+3.0.0.24268 native BlzGetDoodadScaleZ           takes integer index returns real
+3.0.0.24268 native BlzGetDoodadIsUsingModelAxes takes integer index returns boolean
+3.0.0.24268 native BlzGetDoodadYaw              takes integer index returns real
+3.0.0.24268 native BlzGetDoodadPitch            takes integer index returns real
+3.0.0.24268 native BlzGetDoodadRoll             takes integer index returns real
+3.0.0.24268 native BlzGetDoodadVariation        takes integer index returns integer
+3.0.0.24268 native BlzGetDoodadId               takes integer index returns integer
+3.0.0.24268 native BlzGetNumDoodads             takes nothing returns integer
+1.32.0.13369 native BlzHideCinematicPanels                     takes boolean enable returns n
+1.30.0.9655 native AutomationSetTestType                    takes string testType returns no
+1.30.0.9655 native AutomationTestingFinished                takes nothing returns nothing
+3.0.0.24268 native BlzResetUnitAttack                          takes unit whichUnit, integer
+1.30.0.9655 native BlzSpecialEffectClearSubAnimations          takes effect whichEffect retu
+1.30.0.9655 native BlzSpecialEffectRemoveSubAnimation          takes effect whichEffect, sub
+1.30.0.9655 native BlzSpecialEffectAddSubAnimation             takes effect whichEffect, sub
+1.30.0.9655 native BlzPlaySpecialEffect                        takes effect whichEffect, ani
+1.30.0.9655 native BlzPlaySpecialEffectWithTimeScale           takes effect whichEffect, ani
+3.0.0.24268 native BlzSetSpecialEffectAnimationBlendTime       takes effect whichEffect, rea
+3.0.0.24268 native BlzQueueSpecialEffectAnimation              takes effect whichEffect, str
+3.0.0.24268 native BlzSetSpecialEffectAnimation                takes effect whichEffect, str
+1.30.0.9655 native BlzGetAnimName                              takes animtype whichAnim retu
+3.0.0.24268 native BlzUnitEnableAuras                          takes unit whichUnit, boolean
+3.0.0.24268 native BlzGetUnitAbilityCooldownPercent            takes unit whichUnit, integer
+3.0.0.24268 native BlzSetUnitAbilityCooldownRemaining          takes unit whichUnit, integer
+3.0.0.24268 native BlzSetUnitAbilityCooldownPercent            takes unit whichUnit, integer
+3.0.0.24268 native BlzAdjustUnitAbilityCooldownRemaining       takes unit whichUnit, integer
+3.0.0.24268 native BlzAdjustUnitAbilityCooldownPercent         takes unit whichUnit, integer
+1.32.0.14481 native BlzStartUnitAbilityCooldown                 takes unit whichUnit, integer
+1.31.0.11889 native BlzGetEventDamageTarget 	                   takes nothing returns unit
+1.31.0.11889 native BlzGetEventAttackType  	                   takes nothing returns attackty
+1.31.0.11889 native BlzGetEventDamageType                       takes nothing returns damaget
+1.31.0.11889 native BlzGetEventWeaponType  	                   takes nothing returns weaponty
+1.31.0.11889 native BlzSetEventAttackType                       takes attacktype attackType r
+1.31.0.11889 native BlzSetEventDamageType                       takes damagetype damageType r
+1.31.0.11889 native BlzSetEventWeaponType                       takes weapontype weaponType r
+1.32.0.14481 native BlzGetEventIsAttack                         takes nothing returns boolean
+1.30.0.9655 native BlzGetUnitZ                                 takes unit whichUnit returns 
+1.31.0.11889 native BlzEnableSelections                         takes boolean enableSelection
+1.31.0.11889 native BlzIsSelectionEnabled                       takes nothing returns boolean
+1.31.0.11889 native BlzIsSelectionCircleEnabled                 takes nothing returns boolean
+1.31.0.11889 native BlzCameraSetupApplyForceDurationSmooth      takes camerasetup whichSetup,
+1.31.0.11889 native BlzEnableTargetIndicator                    takes boolean enable returns 
+1.31.0.11889 native BlzIsTargetIndicatorEnabled                 takes nothing returns boolean
+1.32.0.13369 native BlzShowTerrain                              takes boolean show returns no
+1.32.0.13369 native BlzShowSkyBox                               takes boolean show returns no
+1.32.0.13369 native BlzStartRecording                           takes integer fps returns not
+1.32.0.13369 native BlzEndRecording                             takes nothing returns nothing
+1.32.0.13369 native BlzShowUnitTeamGlow                         takes unit whichUnit, boolean
+1.31.0.11889 native BlzGetOriginFrame                           takes originframetype frameTy
+1.31.0.11889 native BlzEnableUIAutoPosition                     takes boolean enable returns 
+1.31.0.11889 native BlzHideOriginFrames                         takes boolean enable returns 
+1.31.0.11889 native BlzConvertColor                             takes integer a, integer r, i
+1.31.0.11889 native BlzLoadTOCFile                              takes string TOCFile returns 
+1.31.0.11889 native BlzCreateFrame                              takes string name, framehandl
+1.31.0.11889 native BlzCreateSimpleFrame                        takes string name, framehandl
+1.31.0.11889 native BlzCreateFrameByType                        takes string typeName, string
+1.31.0.11889 native BlzDestroyFrame                             takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetPoint                            takes framehandle frame, fram
+1.31.0.11889 native BlzFrameSetAbsPoint                         takes framehandle frame, fram
+1.31.0.11889 native BlzFrameClearAllPoints                      takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetAllPoints                        takes framehandle frame, fram
+1.31.0.11889 native BlzFrameSetVisible                          takes framehandle frame, bool
+1.31.0.11889 native BlzFrameIsVisible                           takes framehandle frame retur
+1.31.0.11889 native BlzGetFrameByName                           takes string name, integer cr
+1.31.0.11889 native BlzFrameGetName                             takes framehandle frame retur
+1.31.0.11889 native BlzFrameClick                               takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetText                             takes framehandle frame, stri
+1.31.0.11889 native BlzFrameGetText                             takes framehandle frame retur
+1.31.1.12173 native BlzFrameAddText                             takes framehandle frame, stri
+1.31.0.11889 native BlzFrameSetTextSizeLimit                    takes framehandle frame, inte
+1.31.0.11889 native BlzFrameGetTextSizeLimit                    takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetTextColor                        takes framehandle frame, inte
+1.31.0.11889 native BlzFrameSetFocus                            takes framehandle frame, bool
+1.31.0.11889 native BlzFrameSetModel                            takes framehandle frame, stri
+1.31.0.11889 native BlzFrameSetEnable                           takes framehandle frame, bool
+1.31.0.11889 native BlzFrameGetEnable                           takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetAlpha                            takes framehandle frame, inte
+1.31.0.11889 native BlzFrameGetAlpha                            takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetSpriteAnimate                    takes framehandle frame, inte
+1.31.0.11889 native BlzFrameSetTexture                          takes framehandle frame, stri
+1.31.0.11889 native BlzFrameSetScale                            takes framehandle frame, real
+1.31.0.11889 native BlzFrameSetTooltip                          takes framehandle frame, fram
+1.31.0.11889 native BlzFrameCageMouse                           takes framehandle frame, bool
+1.31.0.11889 native BlzFrameSetValue                            takes framehandle frame, real
+1.31.0.11889 native BlzFrameGetValue                            takes framehandle frame retur
+3.0.0.24268 native BlzTextAreaFrameSetAutoScroll               takes framehandle frame, bool
+1.31.0.11889 native BlzFrameSetMinMaxValue                      takes framehandle frame, real
+1.31.0.11889 native BlzFrameSetStepSize                         takes framehandle frame, real
+1.31.0.11889 native BlzFrameSetSize                             takes framehandle frame, real
+1.31.0.11889 native BlzFrameSetVertexColor                      takes framehandle frame, inte
+1.31.0.11889 native BlzFrameSetLevel                            takes framehandle frame, inte
+1.31.0.11889 native BlzFrameSetParent                           takes framehandle frame, fram
+1.31.0.11889 native BlzFrameGetParent                           takes framehandle frame retur
+1.31.0.11889 native BlzFrameGetHeight                           takes framehandle frame retur
+1.31.0.11889 native BlzFrameGetWidth                            takes framehandle frame retur
+1.31.0.11889 native BlzFrameSetFont                             takes framehandle frame, stri
+1.31.0.11889 native BlzFrameSetTextAlignment                    takes framehandle frame, text
+1.32.10.18820 native BlzFrameGetChildrenCount                    takes framehandle frame retur
+1.32.10.18820 native BlzFrameGetChild                            takes framehandle frame, inte
+1.31.0.11889 native BlzTriggerRegisterFrameEvent                takes trigger whichTrigger, f
+1.31.0.11889 native BlzGetTriggerFrame                          takes nothing returns frameha
+1.31.0.11889 native BlzGetTriggerFrameEvent                     takes nothing returns frameev
+1.31.1.12173 native BlzGetTriggerFrameValue                     takes nothing returns real
+1.31.1.12173 native BlzGetTriggerFrameText                      takes nothing returns string
+1.31.0.11889 native BlzTriggerRegisterPlayerSyncEvent           takes trigger whichTrigger, p
+1.31.0.11889 native BlzSendSyncData                             takes string prefix, string d
+1.31.0.11889 native BlzGetTriggerSyncPrefix                     takes nothing returns string
+1.31.0.11889 native BlzGetTriggerSyncData                       takes nothing returns string
+1.31.0.11889 native BlzTriggerRegisterPlayerKeyEvent            takes trigger whichTrigger, p
+1.31.0.11889 native BlzGetTriggerPlayerKey                      takes nothing returns oskeyty
+1.31.0.11889 native BlzGetTriggerPlayerMetaKey                  takes nothing returns integer
+1.31.0.11889 native BlzGetTriggerPlayerIsKeyDown                takes nothing returns boolean
+3.0.0.24268 native BlzIsMetaKeyPressed                         takes integer metakey returns
+3.0.0.24268 native BlzIsKeyPressed                             takes oskeytype key returns b
+3.0.0.24268 native BlzIsMouseButtonPressed                     takes mousebuttontype mouseBu
+3.0.0.24268 native BlzGetMouseScreenPosX                       takes nothing returns integer
+3.0.0.24268 native BlzGetMouseScreenPosY                       takes nothing returns integer
+1.31.0.11889 native BlzEnableCursor                             takes boolean enable returns 
+1.31.0.11889 native BlzSetMousePos                              takes integer x, integer y re
+1.31.0.11889 native BlzGetLocalClientWidth                      takes nothing returns integer
+1.31.0.11889 native BlzGetLocalClientHeight                     takes nothing returns integer
+1.31.0.11889 native BlzIsLocalClientActive                      takes nothing returns boolean
+1.31.0.11889 native BlzGetMouseFocusUnit                        takes nothing returns unit
+3.0.0.24268 native BlzPixelToFrameX                            takes integer pixelX returns 
+3.0.0.24268 native BlzPixelToFrameY                            takes integer pixelY returns 
+3.0.0.24268 native BlzFrameToPixelX                            takes real frameX returns int
+3.0.0.24268 native BlzFrameToPixelY                            takes real frameY returns int
+1.31.0.11889 native BlzChangeMinimapTerrainTex                  takes string texFile returns 
+1.31.0.11889 native BlzGetLocale                                takes nothing returns string
+1.31.0.11889 native BlzGetSpecialEffectScale                    takes effect whichEffect retu
+1.31.0.11889 native BlzSetSpecialEffectMatrixScale              takes effect whichEffect, rea
+1.31.0.11889 native BlzResetSpecialEffectMatrix                 takes effect whichEffect retu
+1.31.0.11889 native BlzGetUnitAbility                           takes unit whichUnit, integer
+1.31.0.11889 native BlzGetUnitAbilityByIndex                    takes unit whichUnit, integer
+1.32.10.19202 native BlzGetAbilityId                             takes ability whichAbility re
+1.31.0.11889 native BlzDisplayChatMessage                       takes player whichPlayer, int
+1.31.0.11889 native BlzPauseUnitEx                              takes unit whichUnit, boolean
+1.32.0.14481 native BlzSetUnitFacingEx                          takes unit whichUnit, real fa
+1.32.0.13369 native CreateCommandButtonEffect                   takes integer abilityId, stri
+1.32.0.13369 native CreateUpgradeCommandButtonEffect            takes integer whichUprgade re
+1.32.0.13369 native CreateLearnCommandButtonEffect              takes integer abilityId retur
+1.32.0.13369 native DestroyCommandButtonEffect                  takes commandbuttoneffect whi
+1.31.0.11889 native BlzBitOr                                    takes integer x, integer y re
+1.31.0.11889 native BlzBitAnd                                   takes integer x, integer y re
+1.31.0.11889 native BlzBitXor                                   takes integer x, integer y re
+1.31.0.11889 native BlzGetAbilityBooleanField                   takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityIntegerField                   takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityRealField                      takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityStringField                    takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityBooleanLevelField              takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityIntegerLevelField              takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityRealLevelField                 takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityStringLevelField               takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityBooleanLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityIntegerLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityRealLevelArrayField            takes ability whichAbility, a
+1.31.0.11889 native BlzGetAbilityStringLevelArrayField          takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityBooleanField                   takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityIntegerField                   takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityRealField                      takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityStringField                    takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityBooleanLevelField              takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityIntegerLevelField              takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityRealLevelField                 takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityStringLevelField               takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityBooleanLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityIntegerLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityRealLevelArrayField            takes ability whichAbility, a
+1.31.0.11889 native BlzSetAbilityStringLevelArrayField          takes ability whichAbility, a
+1.31.0.11889 native BlzAddAbilityBooleanLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzAddAbilityIntegerLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzAddAbilityRealLevelArrayField            takes ability whichAbility, a
+1.31.0.11889 native BlzAddAbilityStringLevelArrayField          takes ability whichAbility, a
+1.31.0.11889 native BlzRemoveAbilityBooleanLevelArrayField      takes ability whichAbility, a
+1.31.0.11889 native BlzRemoveAbilityIntegerLevelArrayField      takes ability whichAbility, a
+1.31.0.11889 native BlzRemoveAbilityRealLevelArrayField         takes ability whichAbility, a
+1.31.0.11889 native BlzRemoveAbilityStringLevelArrayField       takes ability whichAbility, a
+1.31.0.11889 native BlzGetItemAbilityByIndex                    takes item whichItem, integer
+1.31.0.11889 native BlzGetItemAbility                           takes item whichItem, integer
+1.31.0.11889 native BlzItemAddAbility                           takes item whichItem, integer
+1.31.0.11889 native BlzGetItemBooleanField                      takes item whichItem, itemboo
+1.31.0.11889 native BlzGetItemIntegerField                      takes item whichItem, itemint
+1.31.0.11889 native BlzGetItemRealField                         takes item whichItem, itemrea
+1.31.0.11889 native BlzGetItemStringField                       takes item whichItem, itemstr
+1.31.0.11889 native BlzSetItemBooleanField                      takes item whichItem, itemboo
+1.31.0.11889 native BlzSetItemIntegerField                      takes item whichItem, itemint
+1.31.0.11889 native BlzSetItemRealField                         takes item whichItem, itemrea
+1.31.0.11889 native BlzSetItemStringField                       takes item whichItem, itemstr
+1.31.0.11889 native BlzItemRemoveAbility                        takes item whichItem, integer
+1.31.0.11889 native BlzGetUnitBooleanField                      takes unit whichUnit, unitboo
+1.31.0.11889 native BlzGetUnitIntegerField                      takes unit whichUnit, unitint
+1.31.0.11889 native BlzGetUnitRealField                         takes unit whichUnit, unitrea
+1.31.0.11889 native BlzGetUnitStringField                       takes unit whichUnit, unitstr
+1.31.0.11889 native BlzSetUnitBooleanField                      takes unit whichUnit, unitboo
+1.31.0.11889 native BlzSetUnitIntegerField                      takes unit whichUnit, unitint
+1.31.0.11889 native BlzSetUnitRealField                         takes unit whichUnit, unitrea
+1.31.0.11889 native BlzSetUnitStringField                       takes unit whichUnit, unitstr
+1.31.0.11889 native BlzGetUnitWeaponBooleanField                takes unit whichUnit, unitwea
+1.31.0.11889 native BlzGetUnitWeaponIntegerField                takes unit whichUnit, unitwea
+1.31.0.11889 native BlzGetUnitWeaponRealField                   takes unit whichUnit, unitwea
+1.31.0.11889 native BlzGetUnitWeaponStringField                 takes unit whichUnit, unitwea
+1.31.0.11889 native BlzSetUnitWeaponBooleanField                takes unit whichUnit, unitwea
+1.31.0.11889 native BlzSetUnitWeaponIntegerField                takes unit whichUnit, unitwea
+1.31.0.11889 native BlzSetUnitWeaponRealField                   takes unit whichUnit, unitwea
+1.31.0.11889 native BlzSetUnitWeaponStringField                 takes unit whichUnit, unitwea
+1.32.0.13369 native BlzGetUnitSkin                                 takes unit whichUnit retur
+1.32.0.13369 native BlzGetItemSkin                                 takes item whichItem retur
+1.32.0.13369 native BlzSetUnitSkin                                 takes unit whichUnit, inte
+1.32.0.13369 native BlzSetItemSkin                                 takes item whichItem, inte
+1.32.0.13369 native BlzCreateItemWithSkin                       takes integer itemid, real x,
+1.32.0.13369 native BlzCreateUnitWithSkin                       takes player id, integer unit
+1.32.0.13369 native BlzCreateDestructableWithSkin               takes integer objectid, real 
+1.32.0.13369 native BlzCreateDestructableZWithSkin              takes integer objectid, real 
+1.32.0.13369 native BlzCreateDeadDestructableWithSkin           takes integer objectid, real 
+1.32.0.13369 native BlzCreateDeadDestructableZWithSkin          takes integer objectid, real 
+1.32.0.13369 native BlzGetPlayerTownHallCount                   takes player whichPlayer retu
+1.32.10.19202 native BlzQueueImmediateOrderById      takes unit whichUnit, integer order retur
+1.32.10.19202 native BlzQueuePointOrderById          takes unit whichUnit, integer order, real
+1.32.10.19202 native BlzQueueTargetOrderById         takes unit whichUnit, integer order, widg
+1.32.10.19202 native BlzQueueInstantPointOrderById   takes unit whichUnit, integer order, real
+1.32.10.19202 native BlzQueueInstantTargetOrderById  takes unit whichUnit, integer order, widg
+1.32.10.19202 native BlzQueueBuildOrderById          takes unit whichPeon, integer unitId, rea
+1.32.10.19202 native BlzQueueNeutralImmediateOrderById   takes player forWhichPlayer,unit neut
+1.32.10.19202 native BlzQueueNeutralPointOrderById       takes player forWhichPlayer,unit neut
+1.32.10.19202 native BlzQueueNeutralTargetOrderById      takes player forWhichPlayer,unit neut
+1.32.10.19202 native BlzGetUnitOrderCount takes unit whichUnit returns integer
+1.32.10.19202 native BlzUnitClearOrders takes unit whichUnit, boolean onlyQueued returns nothi
+1.32.10.19202 native BlzUnitForceStopOrder takes unit whichUnit, boolean clearQueue returns no
+3.0.0.24268 native BlzCreateDestructablePitchRoll              takes integer objectid, real 
+3.0.0.24268 native BlzCreateDestructableZPitchRoll             takes integer objectid, real 
+3.0.0.24268 native BlzCreateDeadDestructablePitchRoll          takes integer objectid, real 
+3.0.0.24268 native BlzCreateDeadDestructableZPitchRoll         takes integer objectid, real 
+3.0.0.24268 native BlzCreateDestructableWithSkinPitchRoll      takes integer objectid, real 
+3.0.0.24268 native BlzCreateDestructableZWithSkinPitchRoll     takes integer objectid, real 
+3.0.0.24268 native BlzCreateDeadDestructableWithSkinPitchRoll  takes integer objectid, real 
+3.0.0.24268 native BlzCreateDeadDestructableZWithSkinPitchRoll takes integer objectid, real 
+3.0.0.24268 native BlzCreateDestructableWithColor                   takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructableZWithColor                  takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableWithColor               takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableZWithColor              takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructableWithSkinColor               takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructableZWithSkinColor              takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableWithSkinColor           takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableZWithSkinColor          takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructablePitchRollWithColor          takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructableZPitchRollWithColor         takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructablePitchRollWithColor      takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableZPitchRollWithColor     takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructableWithSkinPitchRollColor      takes integer objectid, 
+3.0.0.24268 native BlzCreateDestructableZWithSkinPitchRollColor     takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableWithSkinPitchRollColor  takes integer objectid, 
+3.0.0.24268 native BlzCreateDeadDestructableZWithSkinPitchRollColor takes integer objectid, 
+3.0.0.24268 native SetDestructableVertexColor			takes destructable whichDestructable, intege

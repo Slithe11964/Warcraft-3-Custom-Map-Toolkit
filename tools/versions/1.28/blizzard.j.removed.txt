@@ -1,0 +1,184 @@
+1.32.0.14411 constant real      bj_HANDICAP_NORMAL               = 90.00
+1.32.0.13369 constant real      bj_HANDICAPDAMAGE_EASY           = 50.00
+1.32.0.14411 constant real      bj_HANDICAPDAMAGE_NORMAL         = 90.00
+1.32.0.13369 constant real      bj_HANDICAPREVIVE_NOTHARD        = 50.00
+3.0.0.24268 constant integer   bj_MAX_EXTENDED_INVENTORY        =  30
+3.0.0.24268 constant integer   bj_MAX_EQUIPMENT_INVENTORY       =  9
+1.32.0.13369 constant integer   bj_MAX_CHECKPOINTS               =  5
+3.0.0.24268 constant integer   bj_CAMPAIGN_INDEX_RH       = 9
+3.0.0.24268 constant integer   bj_CAMPAIGN_INDEX_RU       = 10
+3.0.0.24268 constant integer   bj_CAMPAIGN_OFFSET_RH      = 0
+3.0.0.24268 constant integer   bj_CAMPAIGN_OFFSET_RU      = 1
+1.32.0.13369 constant integer   bj_MISSION_INDEX_T02       = bj_CAMPAIGN_OFFSET_T * 1000 + 2
+1.32.0.13369 constant integer   bj_MISSION_INDEX_T03       = bj_CAMPAIGN_OFFSET_T * 1000 + 3
+1.32.0.13369 constant integer   bj_MISSION_INDEX_T04       = bj_CAMPAIGN_OFFSET_T * 1000 + 4
+1.30.0.9655 constant integer   bj_MISSION_INDEX_XO01       = bj_CAMPAIGN_OFFSET_XO * 1000 + 
+1.30.0.9655 constant integer   bj_MISSION_INDEX_XO02       = bj_CAMPAIGN_OFFSET_XO * 1000 + 
+1.30.0.9655 constant integer   bj_MISSION_INDEX_XO03       = bj_CAMPAIGN_OFFSET_XO * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RH00       = bj_CAMPAIGN_OFFSET_RH * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RH01       = bj_CAMPAIGN_OFFSET_RH * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RH02       = bj_CAMPAIGN_OFFSET_RH * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RH03       = bj_CAMPAIGN_OFFSET_RH * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RH04       = bj_CAMPAIGN_OFFSET_RH * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RU00       = bj_CAMPAIGN_OFFSET_RU * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RU01       = bj_CAMPAIGN_OFFSET_RU * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RU02       = bj_CAMPAIGN_OFFSET_RU * 1000 + 
+3.0.0.24268 constant integer   bj_MISSION_INDEX_RU03       = bj_CAMPAIGN_OFFSET_RU * 1000 + 
+3.0.0.24268 constant integer   bj_CINEMATICINDEX_HFO      = 11
+3.0.0.24268 constant integer   bj_CINEMATICINDEX_UFE      = 12
+3.0.0.24268 constant integer   bj_KEYEVENTKEY_A           = 4
+1.29.0.8803 constant integer   bj_MOUSEEVENTTYPE_DOWN     = 0
+1.29.0.8803 constant integer   bj_MOUSEEVENTTYPE_UP       = 1
+1.29.0.8803 constant integer   bj_MOUSEEVENTTYPE_MOVE     = 2
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_PRIMARY			= 0
+1.32.0.14411 constant integer   bj_CAMPPINGSTYLE_PRIMARY_GREEN   = 1
+1.32.0.14411 constant integer   bj_CAMPPINGSTYLE_PRIMARY_RED     = 2
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_BONUS			= 3
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_TURNIN			= 4
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_BOSS			= 5
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_CONTROL_ALLY	= 6
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_CONTROL_NEUTRAL	= 7
+1.32.0.13369 constant integer   bj_CAMPPINGSTYLE_CONTROL_ENEMY	= 8
+3.0.0.24268 boolean            bj_HeroGlowAllUnitsFlag     = true
+3.0.0.24268 boolean            bj_enableAurasAllUnits      = true
+3.0.0.24268 boolean            bj_affectsUIAurasAllUnits   = true
+1.32.0.13369 minimapicon        bj_lastCreatedMinimapIcon   = null
+1.32.0.13369 commandbuttoneffect bj_lastCreatedCommandButtonEffect = null
+3.0.0.24268 item               bj_lastEquippedItem         = null
+3.0.0.24268 item               bj_lastUnequippedItem       = null
+3.0.0.24268 effect 			   bj_destroyEffectAsyncEffect = null
+3.0.0.24268 real 			   bj_destroyEffectAsyncTime   = 0
+1.31.0.11889 boolean            bj_lastInstObjFuncSuccessful = true
+3.0.0.24268 function SetWantDestroyGroupBJ takes nothing returns nothing
+3.0.0.24268 function ClearWantDestroyGroupBJ takes nothing returns nothing
+3.0.0.24268 function GetWantDestroyGroupBJ takes nothing returns boolean
+1.32.0.13369 function CameraSetupApplyForPlayerSmooth takes boolean doPan, camerasetup whichS
+3.0.0.24268 function SetCameraFieldControlledByInputForPlayer takes player whichPlayer, came
+1.29.0.8803 function TriggerRegisterPlayerMouseEventBJ takes trigger trig, player whichPlaye
+3.0.0.24268 function IsMouseButtonPressedBJ takes mousebuttontype mouseButtonType returns bo
+3.0.0.24268 function IsMetaKeyPressedBJ takes integer metakey returns boolean
+3.0.0.24268 function IsKeyPressedBJ takes oskeytype key returns boolean
+1.32.0.13369 function TriggerRegisterBuildCommandEventBJ takes trigger trig, integer unitId r
+1.32.0.13369 function TriggerRegisterTrainCommandEventBJ takes trigger trig, integer unitId r
+1.32.0.13369 function TriggerRegisterUpgradeCommandEventBJ takes trigger trig, integer techId
+1.32.0.14411 function TriggerRegisterCommonCommandEventBJ takes trigger trig, string order re
+3.0.0.24268 function SetHDWaterParamsExBJ takes real red, real green, real blue, boolean ove
+3.0.0.24268 function BlzSetHDWaterColorBJ takes real red, real green, real blue returns noth
+3.0.0.24268 function BlzSetHDWaterColorOverrideBJ takes nothing returns nothing
+3.0.0.24268 function BlzClearHDWaterColorOverrideBJ takes nothing returns nothing
+3.0.0.24268 function BlzSetHDWaterVertexDisplacementBJ takes integer vertexDisplacement retu
+3.0.0.24268 function BlzSetHDWaterMinOpacityBJ takes integer minOpacity returns nothing
+3.0.0.24268 function BlzSetHDWaterMaxOpacityBJ takes integer maxOpacity returns nothing
+3.0.0.24268 function BlzSetHDWaterReflectivityBJ takes integer reflectivity returns nothing
+3.0.0.24268 function BlzSetHDWaterEmissivityBJ takes integer emissivity returns nothing
+3.0.0.24268 function BlzSetHDWaterEdgeSoftnessBJ takes integer edgeSoftness returns nothing
+3.0.0.24268 function BlzSetHDWaterWaveStrengthBJ takes integer waveStrength returns nothing
+3.0.0.24268 function BlzSetHDWaterEnvMapStrengthBJ takes integer envMapStrengthy returns not
+3.0.0.24268 function SetTerrainFogExVBJ takes integer style, real zstart, real zend, real de
+3.0.0.24268 function BlzSetTerrainFogStyleBJ takes fogstyle style returns nothing
+3.0.0.24268 function BlzSetTerrainFogZStartBJ takes real zStart returns nothing
+3.0.0.24268 function BlzSetTerrainFogZEndBJ takes real zEnd returns nothing
+3.0.0.24268 function BlzSetTerrainFogDensityBJ takes real density returns nothing
+3.0.0.24268 function BlzSetTerrainFogHeightStartBJ takes real heightStart returns nothing
+3.0.0.24268 function BlzSetTerrainFogHeightEndBJ takes real heightEnd returns nothing
+3.0.0.24268 function BlzSetTerrainFogLinearStartBJ takes real linearStart returns nothing
+3.0.0.24268 function BlzSetTerrainFogLinearEndBJ takes real linearEnd returns nothing
+3.0.0.24268 function BlzSetTerrainFogMaxLinearDensityBJ takes real maxLinearDensity returns 
+3.0.0.24268 function BlzSetTerrainFogDrawOverSkyBJ takes boolean drawOverSky returns nothing
+3.0.0.24268 function BlzSetTerrainFogColorBJ takes real red, real green, real blue returns n
+3.0.0.24268 function BlzSetSingleDoodadAnimationBJ takes string animName, integer index retu
+3.0.0.24268 function SetDoodadColorBJ takes playercolor color, integer doodadID, real radius
+3.0.0.24268 function SetDoodadColorRectBJ takes playercolor color, integer doodadID, rect r 
+3.0.0.24268 function BlzSetSingleDoodadColorBJ takes playercolor color, integer index return
+3.0.0.24268 function AllowHeroGlowOnUnitBJ takes unit whichUnit returns nothing
+3.0.0.24268 function DisallowHeroGlowOnUnitBJ takes unit whichUnit returns nothing
+3.0.0.24268 function ToggleHeroGlowOnAllUnitsBJEnum takes nothing returns nothing
+3.0.0.24268 function ToggleHeroGlowOnAllUnitsBJ takes boolean allow returns nothing
+3.0.0.24268 function AllowHeroGlowOnAllUnitsBJ takes nothing returns nothing
+3.0.0.24268 function DisallowHeroGlowOnAllUnitsBJ takes nothing returns nothing
+3.0.0.24268 function HeroGlowIsAllowedOnUnitBJ takes unit whichUnit returns boolean
+1.32.0.13369 function GetLastCreatedMinimapIcon takes nothing returns minimapicon
+1.32.0.13369 function CreateMinimapIconOnUnitBJ takes unit whichUnit, integer red, integer gr
+1.32.0.13369 function CreateMinimapIconAtLocBJ takes location where, integer red, integer gre
+1.32.0.13369 function CreateMinimapIconBJ takes real x, real y, integer red, integer green, i
+1.32.0.13369 function CampaignMinimapIconUnitBJ takes unit whichUnit, integer style returns n
+1.32.0.13369 function CampaignMinimapIconLocBJ takes location where, integer style returns no
+1.32.1.14604 function SetThematicMusicVolumeBJ takes real volumePercent returns nothing
+3.0.0.24268 function DestroyEffectAsyncBJ takes nothing returns nothing
+3.0.0.24268 function DestroyEffectAfterTimeBJ takes effect whichEffect, real time returns no
+1.32.0.13369 function CreateCommandButtonEffectBJ takes integer abilityId, string order retur
+1.32.0.13369 function CreateTrainCommandButtonEffectBJ takes integer unitId returns commandbu
+1.32.0.13369 function CreateUpgradeCommandButtonEffectBJ takes integer techId returns command
+1.32.0.14411 function CreateCommonCommandButtonEffectBJ takes string order returns commandbut
+1.32.0.13369 function CreateLearnCommandButtonEffectBJ takes integer abilityId returns comman
+1.32.0.13369 function CreateBuildCommandButtonEffectBJ takes integer unitId returns commandbu
+1.32.0.13369 function GetLastCreatedCommandButtonEffectBJ takes nothing returns commandbutton
+3.0.0.24268 function UnitEquipItemSwapped takes item whichItem, unit whichHero returns boole
+3.0.0.24268 function UnitEquipItemByIdSwapped takes integer itemId, unit whichHero returns i
+3.0.0.24268 function UnitUnequipItemSwapped takes unit whichHero, item whichItem returns not
+3.0.0.24268 function UnitUnequipItemFromSlotSwapped takes unit whichHero, loadoutslot slot r
+3.0.0.24268 function GetLastEquippedItem takes nothing returns item
+3.0.0.24268 function GetLastUnequippedItem takes nothing returns item
+1.32.0.13369 function SetPlayerHandicapDamageBJ takes player whichPlayer, real handicapPercen
+1.32.0.13369 function GetPlayerHandicapDamageBJ takes player whichPlayer returns real
+1.32.0.13369 function SetPlayerHandicapReviveTimeBJ takes player whichPlayer, real handicapPe
+1.32.0.13369 function GetPlayerHandicapReviveTimeBJ takes player whichPlayer returns real
+3.0.0.24268 function UnitItemInBagSlotBJ takes unit whichUnit, integer itemSlot returns item
+3.0.0.24268 function UnitItemInEquipmentSlotBJ takes unit whichUnit, loadoutslot slot return
+3.0.0.24268 function GetInventoryBagIndexOfItemTypeBJ takes unit whichUnit, integer itemId r
+3.0.0.24268 function GetItemOfTypeFromUnitBagBJ takes unit whichUnit, integer itemId returns
+3.0.0.24268 function UnitHasItemOfTypeBaggedBJ takes unit whichUnit, integer itemId returns 
+3.0.0.24268 function GetInventoryBagIndexOfEquipmentTypeBJ takes unit whichUnit, equipmentTy
+3.0.0.24268 function GetItemOfEquipmentTypeFromUnitBagBJ takes unit whichUnit, equipmentType
+3.0.0.24268 function GetEquipmentInventoryIndexOfItemTypeBJ takes unit whichUnit, integer it
+3.0.0.24268 function GetEquipmentInventoryIndexOfEquipmentTypeBJ takes unit whichUnit, equip
+3.0.0.24268 function GetItemEquippedByHeroOfTypeBJ takes unit whichUnit, integer itemId retu
+3.0.0.24268 function GetItemEquippedByHeroOfEquipmentTypeBJ takes unit whichUnit, equipmentT
+3.0.0.24268 function UnitHasItemOfTypeEquippedBJ takes unit whichUnit, integer itemId return
+3.0.0.24268 function UnitExtendedInventoryCount takes unit whichUnit returns integer
+3.0.0.24268 function UnitExtendedInventorySizeBJ takes unit whichUnit returns integer
+3.0.0.24268 function UnitEquipmentCount takes unit whichUnit returns integer
+3.0.0.24268 function ChooseRandomItemExWithFilterBJ takes integer level, itemtype whichType,
+3.0.0.24268 function BlzAllUnitsEnableAurasBJEnum takes nothing returns nothing
+3.0.0.24268 function BlzAllUnitsEnableAurasBJ takes boolean enable, boolean affectsUI return
+3.0.0.24268 function SetDestructableVertexColorBJ takes destructable whichDestructable, real
+1.32.0.13369 function PlayDialogueFromSpeakerEx takes force toForce, unit speaker, integer sp
+1.32.0.13369 function PlayDialogueFromSpeakerTypeEx takes force toForce, player fromPlayer, i
+3.0.0.24268 function SetCameraBlockerForPlayerBJ takes rect r, boolean flag, player whichPla
+1.32.0.13369 function SaveGameCheckPointBJ takes string mapSaveName, boolean doCheckpointHint
+1.31.0.11889 function BlzIsLastInstanceObjectFunctionSuccessful takes nothing returns boolean
+1.31.0.11889 function BlzSetAbilityBooleanFieldBJ takes ability whichAbility, abilitybooleanf
+1.31.0.11889 function BlzSetAbilityIntegerFieldBJ takes ability whichAbility, abilityintegerf
+1.31.0.11889 function BlzSetAbilityRealFieldBJ takes ability whichAbility, abilityrealfield w
+1.31.0.11889 function BlzSetAbilityStringFieldBJ takes ability whichAbility, abilitystringfie
+1.31.0.11889 function BlzSetAbilityBooleanLevelFieldBJ takes ability whichAbility, abilityboo
+1.31.0.11889 function BlzSetAbilityIntegerLevelFieldBJ takes ability whichAbility, abilityint
+1.31.0.11889 function BlzSetAbilityRealLevelFieldBJ takes ability whichAbility, abilityrealle
+1.31.0.11889 function BlzSetAbilityStringLevelFieldBJ takes ability whichAbility, abilitystri
+1.31.0.11889 function BlzSetAbilityBooleanLevelArrayFieldBJ takes ability whichAbility, abili
+1.31.0.11889 function BlzSetAbilityIntegerLevelArrayFieldBJ takes ability whichAbility, abili
+1.31.0.11889 function BlzSetAbilityRealLevelArrayFieldBJ takes ability whichAbility, abilityr
+1.31.0.11889 function BlzSetAbilityStringLevelArrayFieldBJ takes ability whichAbility, abilit
+1.31.0.11889 function BlzAddAbilityBooleanLevelArrayFieldBJ takes ability whichAbility, abili
+1.31.0.11889 function BlzAddAbilityIntegerLevelArrayFieldBJ takes ability whichAbility, abili
+1.31.0.11889 function BlzAddAbilityRealLevelArrayFieldBJ takes ability whichAbility, abilityr
+1.31.0.11889 function BlzAddAbilityStringLevelArrayFieldBJ takes ability whichAbility, abilit
+1.31.0.11889 function BlzRemoveAbilityBooleanLevelArrayFieldBJ takes ability whichAbility, ab
+1.31.0.11889 function BlzRemoveAbilityIntegerLevelArrayFieldBJ takes ability whichAbility, ab
+1.31.0.11889 function BlzRemoveAbilityRealLevelArrayFieldBJ takes ability whichAbility, abili
+1.31.0.11889 function BlzRemoveAbilityStringLevelArrayFieldBJ takes ability whichAbility, abi
+1.31.0.11889 function BlzItemAddAbilityBJ takes item whichItem, integer abilCode returns noth
+1.31.0.11889 function BlzItemRemoveAbilityBJ takes item whichItem, integer abilCode returns n
+1.31.0.11889 function BlzSetItemBooleanFieldBJ takes item whichItem, itembooleanfield whichFi
+1.31.0.11889 function BlzSetItemIntegerFieldBJ takes item whichItem, itemintegerfield whichFi
+1.31.0.11889 function BlzSetItemRealFieldBJ takes item whichItem, itemrealfield whichField, r
+1.31.0.11889 function BlzSetItemStringFieldBJ takes item whichItem, itemstringfield whichFiel
+1.31.0.11889 function BlzSetUnitBooleanFieldBJ takes unit whichUnit, unitbooleanfield whichFi
+1.31.0.11889 function BlzSetUnitIntegerFieldBJ takes unit whichUnit, unitintegerfield whichFi
+1.31.0.11889 function BlzSetUnitRealFieldBJ takes unit whichUnit, unitrealfield whichField, r
+1.31.0.11889 function BlzSetUnitStringFieldBJ takes unit whichUnit, unitstringfield whichFiel
+1.31.0.11889 function BlzSetUnitWeaponBooleanFieldBJ takes unit whichUnit, unitweaponbooleanf
+1.31.0.11889 function BlzSetUnitWeaponIntegerFieldBJ takes unit whichUnit, unitweaponintegerf
+1.31.0.11889 function BlzSetUnitWeaponRealFieldBJ takes unit whichUnit, unitweaponrealfield w
+1.31.0.11889 function BlzSetUnitWeaponStringFieldBJ takes unit whichUnit, unitweaponstringfie
+3.0.0.24268 function BlzEnableAuras takes unit whichUnit, boolean enable returns nothing
