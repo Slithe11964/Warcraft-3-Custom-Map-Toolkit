@@ -302,6 +302,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('map'); ap.add_argument('out')
     ap.add_argument('--w3i-template', required=True)
+    ap.add_argument('--name', help='map name shown in the map list (default: the template map\'s)')
     ap.add_argument('--no-editor-files', action='store_true', help='leave out trigger/region/camera editor files (play-only map)')
     a = ap.parse_args()
     m = MPQ(a.map)
@@ -341,6 +342,14 @@ def main():
     tmp = a.out + '.tmp'
     write_files(a.map, tmp, files)
     compact(tmp, a.out); os.remove(tmp)
+    # 1.29's map list skips a map without the 512-byte HM3W header; copy it from the template if needed
+    d = open(a.out, 'rb').read()
+    if d[:4] != b'HM3W':
+        from add_header import read_header, build_header
+        tpl = a.w3i_template if open(a.w3i_template, 'rb').read(4) == b'HM3W' else None
+        name, flags, players = read_header(tpl) if tpl else (os.path.splitext(os.path.basename(a.out))[0], 0, 8)
+        open(a.out, 'wb').write(build_header(a.name or name, flags, players) + d[d.find(b'MPQ\x1a'):])
+        report.append('added HM3W map header')
     print('\n'.join(report))
     print('written', a.out)
 
