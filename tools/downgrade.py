@@ -338,7 +338,9 @@ def pjass(text, ver='1.29.2'):
         subprocess.run([sys.executable, os.path.join(HERE, 'version_libs.py'), ver], check=True, capture_output=True)
     with tempfile.NamedTemporaryFile('w', suffix='.j', delete=False, encoding='utf-8') as f:
         f.write(text); p = f.name
-    r = subprocess.run(['pjass', os.path.join(d, 'common.j'), os.path.join(d, 'blizzard.j'), p], capture_output=True, text=True)
+    exe = os.path.join(HERE, 'bin', 'pjass.exe')
+    exe = exe if os.name == 'nt' and os.path.exists(exe) else 'pjass'   # Windows: the copy in tools/bin
+    r = subprocess.run([exe, os.path.join(d, 'common.j'), os.path.join(d, 'blizzard.j'), p], capture_output=True, text=True)
     os.unlink(p)
     return r.returncode == 0, [l for l in (r.stdout + r.stderr).splitlines() if 'Parse successful' not in l][:20]
 
@@ -408,12 +410,12 @@ def main():
     compact(tmp, a.out); os.remove(tmp)
     # 1.29's map list skips a map without the 512-byte HM3W header; copy it from the template if needed
     d = open(a.out, 'rb').read()
-    if d[:4] != b'HM3W':
+    if d[:4] != b'HM3W' or a.name:
         from add_header import read_header, build_header
-        tpl = a.w3i_template if open(a.w3i_template, 'rb').read(4) == b'HM3W' else None
-        name, flags, players = read_header(tpl) if tpl else (os.path.splitext(os.path.basename(a.out))[0], 0, 8)
+        src = a.out if d[:4] == b'HM3W' else (a.w3i_template if open(a.w3i_template, 'rb').read(4) == b'HM3W' else None)
+        name, flags, players = read_header(src) if src else (os.path.splitext(os.path.basename(a.out))[0], 0, 8)
         open(a.out, 'wb').write(build_header(a.name or name, flags, players) + d[d.find(b'MPQ\x1a'):])
-        report.append('added HM3W map header')
+        report.append('HM3W map header: "%s"' % (a.name or name))
     print('\n'.join(report))
     print('written', a.out)
 
