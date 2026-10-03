@@ -126,7 +126,24 @@ def inline_strings(t, strings):
                             x['value'] = strings[int(mm.group(1))]; n += 1
     return n
 
-def objects_v2(m, ext, strings=None):
+def fill_missing(t, old):
+    """Reforged's editor leaves out fields it considers default, e.g. ability values for levels above the
+    base ability's own level count. 1.29 doesn't fill those the same way (a Channel-based spell at a high
+    level can freeze its caster), so copy every field the older, classic-saved map had and this one lacks."""
+    n = 0
+    for table in ('original', 'custom'):
+        by = {(o['base'], o['id']): o for o in old[table]}
+        for o in t[table]:
+            oo = by.get((o['base'], o['id']))
+            if not oo:
+                continue
+            mods = o['sets'][0]['mods']
+            have = {(x['field'], x['level']) for x in mods}
+            add = [dict(x) for x in oo['sets'][0]['mods'] if (x['field'], x['level']) not in have]
+            mods += add; n += len(add)
+    return n
+
+def objects_v2(m, ext, strings=None, old=None, report=None):
     main = m.read('war3map.' + ext)
     if not main:
         return None
@@ -150,6 +167,10 @@ def objects_v2(m, ext, strings=None):
         for o in t[table]:
             if len(o['sets']) > 1:
                 raise ValueError('%s %s has %d sets; only the first can be kept' % (ext, o['id'] or o['base'], len(o['sets'])))
+    if old is not None and old.read('war3map.' + ext):
+        n = fill_missing(t, read_objects(old.read('war3map.' + ext), ext))
+        if report is not None and n:
+            report.append('  %s: %d fields restored from the older map' % (ext, n))
     if strings:
         inline_strings(t, strings)
     out = write_objects(t, 2, ext)
@@ -329,6 +350,8 @@ def main():
     ap.add_argument('map'); ap.add_argument('out')
     ap.add_argument('--w3i-template', required=True)
     ap.add_argument('--name', help='map name shown in the map list (default: the template map\'s)')
+    ap.add_argument('--fill-from', help='an older map saved by a classic-format editor (e.g. 1.32 or older): object '
+                    'fields Reforged left out are copied from it. Strongly recommended')
     ap.add_argument('--no-editor-files', action='store_true', help='leave out trigger/region/camera editor files (play-only map)')
     a = ap.parse_args()
     m = MPQ(a.map)
@@ -339,7 +362,7 @@ def main():
         files['war3mapUnits.doo'] = units_v8(m.read('war3mapUnits.doo')); report.append('placed units -> v8')
     strings = wts_read(m.read('war3map.wts'))
     for x in 'utabdhq':
-        o = objects_v2(m, 'w3' + x, strings)
+        o = objects_v2(m, 'w3' + x, strings, MPQ(a.fill_from) if a.fill_from else None, report)
         if o is not None:
             files['war3map.w3' + x] = o
     report.append('object data -> v2 (skin files merged)')
