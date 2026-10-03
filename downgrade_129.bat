@@ -1,32 +1,41 @@
 @echo off
-setlocal
 rem Drag a Reforged-format .w3x map onto this file to make a 1.29.2 copy next to it.
-rem Uses ..\FFERPG_0.9.7.3-r7.w3x as the template (map info, and the object fields Reforged leaves out).
+rem Uses ..\FFERPG_0.9.7.3-r7.w3x as the template. Everything it prints is also saved in downgrade_log.txt.
+setlocal
 set "HERE=%~dp0"
-set "R7=%HERE%..\FFERPG_0.9.7.3-r7.w3x"
-if "%~1"=="" (
-  echo Drag a Reforged .w3x map onto this file.
-  pause
-  exit /b 1
-)
-if not exist "%R7%" (
-  echo Missing template: %R7%
-  pause
-  exit /b 1
-)
-set "PY=python"
-where py >nul 2>nul && set "PY=py"
-set "OUT=%~dpn1-1.29.2.w3x"
-if exist "%OUT%" (
-  echo Replacing the old %~n1-1.29.2.w3x
-  del "%OUT%"
-)
-%PY% "%HERE%tools\downgrade.py" "%~1" "%OUT%" --w3i-template "%R7%" --fill-from "%R7%" --name "%~n1 (1.29.2)"
-if errorlevel 1 (
-  echo.
-  echo The conversion FAILED - see the messages above.
-) else (
-  echo.
-  echo Done: %OUT%
-)
+set "LOG=%HERE%downgrade_log.txt"
+call :main "%~1" > "%LOG%" 2>&1
+type "%LOG%"
+echo.
 pause
+exit /b
+
+:main
+if "%~1"=="" goto nomap
+set "R7=%HERE%..\FFERPG_0.9.7.3-r7.w3x"
+if not exist "%R7%" goto notemplate
+set "PY="
+where py >nul 2>nul && set "PY=py"
+if not defined PY where python >nul 2>nul && set "PY=python"
+if not defined PY goto nopython
+set "OUT=%~dpn1-1.29.2.w3x"
+if exist "%OUT%" del "%OUT%"
+echo Converting "%~nx1" with %PY% ...
+%PY% "%HERE%tools\downgrade.py" "%~1" "%OUT%" --w3i-template "%R7%" --fill-from "%R7%" --name "%~n1 (1.29.2)"
+if errorlevel 1 goto failed
+echo.
+echo Done: "%OUT%"
+exit /b 0
+:failed
+echo.
+echo The conversion FAILED. The messages above say why.
+exit /b 1
+:nomap
+echo Drag a Reforged .w3x map onto downgrade_129.bat (do not double-click it).
+exit /b 1
+:notemplate
+echo Missing the template map "%R7%".
+exit /b 1
+:nopython
+echo Python was not found. Install it from python.org and tick "Add Python to PATH".
+exit /b 1
