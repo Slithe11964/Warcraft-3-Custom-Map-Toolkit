@@ -102,12 +102,36 @@ def units_v8(d):
     return bytes(out)
 
 # ---------------------------------------------------------------- objects
-def objects_v2(m, ext):
+# ---------------------------------------------------------------- strings (war3map.wts)
+WTS_ENTRY = re.compile(r'STRING (\d+)[^\n]*\n(?:\s*//[^\n]*\n)*\s*\{\r?\n(.*?)\r?\n\}', re.S)
+
+def wts_read(d):
+    text = d.decode('utf-8-sig', 'replace') if d else ''
+    return {int(k): v for k, v in WTS_ENTRY.findall(text)}
+
+def wts_write(strings):
+    return ('\ufeff' + ''.join('STRING %d\r\n{\r\n%s\r\n}\r\n\r\n' % (k, strings[k]) for k in sorted(strings))).encode('utf-8')
+
+def inline_strings(t, strings):
+    """Reforged keeps object names/tooltips in war3map.wts as TRIGSTR_n. 1.29 crashes on a wts that big
+    (38,000 entries), and its own editor stores them inline, so put the text back into the objects."""
+    n = 0
+    for table in ('original', 'custom'):
+        for o in t[table]:
+            for st in o['sets']:
+                for x in st['mods']:
+                    if x['type'] == 3:
+                        mm = re.fullmatch(r'TRIGSTR_(\d+)', x['value'] or '')
+                        if mm and int(mm.group(1)) in strings:
+                            x['value'] = strings[int(mm.group(1))]; n += 1
+    return n
+
+def objects_v2(m, ext, strings=None):
     main = m.read('war3map.' + ext)
     if not main:
         return None
     t = read_objects(main, ext)
-    if t['version'] <= 2:
+    if t['version'] <= 2 and not strings:
         return main
     skin = m.read('war3mapSkin.' + ext)
     if skin:
@@ -126,6 +150,8 @@ def objects_v2(m, ext):
         for o in t[table]:
             if len(o['sets']) > 1:
                 raise ValueError('%s %s has %d sets; only the first can be kept' % (ext, o['id'] or o['base'], len(o['sets'])))
+    if strings:
+        inline_strings(t, strings)
     out = write_objects(t, 2, ext)
     assert read_objects(out, ext)['version'] == 2
     return out
@@ -311,8 +337,9 @@ def main():
     files['war3map.doo'] = doo_v8(m.read('war3map.doo')); report.append('doodads -> v8')
     if m.read('war3mapUnits.doo'):
         files['war3mapUnits.doo'] = units_v8(m.read('war3mapUnits.doo')); report.append('placed units -> v8')
+    strings = wts_read(m.read('war3map.wts'))
     for x in 'utabdhq':
-        o = objects_v2(m, 'w3' + x)
+        o = objects_v2(m, 'w3' + x, strings)
         if o is not None:
             files['war3map.w3' + x] = o
     report.append('object data -> v2 (skin files merged)')
@@ -339,6 +366,20 @@ def main():
     for n in REFORGED_ONLY:
         if m.read(n) is not None:
             files[n] = None
+    # keep only the strings something still points at (script, map info, trigger editor, ...)
+    if strings:
+        lf = m.read('(listfile)')
+        names = set(x for x in (lf.decode('utf-8', 'replace').split('\r\n') if lf else []) if x) | set(files)
+        used = set()
+        for n in names:
+            if n == 'war3map.wts':
+                continue
+            d = files[n] if n in files else m.read(n)
+            if d:
+                used |= {int(i) for i in re.findall(rb'TRIGSTR_(\d+)', d)}
+        kept = {k: v for k, v in strings.items() if k in used}
+        files['war3map.wts'] = wts_write(kept)
+        report.append('strings: object text put back inline; war3map.wts %d -> %d entries' % (len(strings), len(kept)))
     tmp = a.out + '.tmp'
     write_files(a.map, tmp, files)
     compact(tmp, a.out); os.remove(tmp)
