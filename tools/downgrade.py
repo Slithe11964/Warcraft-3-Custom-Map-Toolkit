@@ -415,6 +415,11 @@ def main():
             if d:
                 used |= {int(i) for i in re.findall(rb'TRIGSTR_(\d+)', d)}
         kept = {k: v for k, v in strings.items() if k in used}
+        if a.name:   # the map list and lobby show the map info's name: make it the --name too
+            w3i = files['war3map.w3i']
+            mm = re.match(rb'TRIGSTR_(\d+)\0', w3i[12:])
+            if mm and int(mm.group(1)) in kept:
+                kept[int(mm.group(1))] = a.name
         files['war3map.wts'] = wts_write(kept)
         report.append('strings: object text put back inline; war3map.wts %d -> %d entries' % (len(strings), len(kept)))
     tmp = a.out + '.tmp'
