@@ -345,7 +345,16 @@ def pjass(text, ver='1.29.2'):
     return r.returncode == 0, [l for l in (r.stdout + r.stderr).splitlines() if 'Parse successful' not in l][:20]
 
 REFORGED_ONLY = ['war3mapSkin.w3u', 'war3mapSkin.w3t', 'war3mapSkin.w3a', 'war3mapSkin.w3b', 'war3mapSkin.w3d',
-                 'war3mapSkin.w3h', 'war3mapSkin.w3q', 'war3mapSkin.txt', 'war3map.w3l', 'war3map.w3grp']
+                 'war3mapSkin.w3h', 'war3mapSkin.w3q', 'war3map.w3l', 'war3map.w3grp']
+# war3mapSkin.txt is NOT Reforged-only: it is the Game Interface (resource icons, UI texts) and 1.29 reads it.
+
+def skin_txt(d, strings):
+    """Game Interface file: keep it, with its TRIGSTR_ references written out (one-line texts only)."""
+    text = d.decode('utf-8-sig', 'replace')
+    def sub(m):
+        v = strings.get(int(m.group(1)))
+        return v if v is not None and '\n' not in v and '\r' not in v else m.group(0)
+    return re.sub(r'TRIGSTR_(\d+)', sub, text).encode('utf-8')
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -391,6 +400,9 @@ def main():
     for n in REFORGED_ONLY:
         if m.read(n) is not None:
             files[n] = None
+    if m.read('war3mapSkin.txt'):
+        files['war3mapSkin.txt'] = skin_txt(m.read('war3mapSkin.txt'), strings)
+        report.append('game interface (war3mapSkin.txt) kept')
     # keep only the strings something still points at (script, map info, trigger editor, ...)
     if strings:
         lf = m.read('(listfile)')
