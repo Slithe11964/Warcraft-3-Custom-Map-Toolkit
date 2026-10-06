@@ -12,6 +12,13 @@ python tools/pipeline.py "SomeProtectedMap.w3x" out/SomeMap
 Read [PLAYBOOK.md](PLAYBOOK.md) for the whole process. It also explains how FF Epic RPG went from a
 protected map to the documented, modular map it is now.
 
+`downgrade_129.bat` is the FF Epic RPG shortcut. It keeps the input filename in a sibling
+`1.29.2` folder and refuses existing outputs. It now passes `--fferpg-visuals`: missing attachment
+art on Pharmacology/Dual Wield is explicitly empty, and Gaya's flying selection circle/stem is hidden.
+This profile verifies the expected FF unit/passive IDs before applying appearance changes; it does
+not change ability lists, stats or script. Generic `downgrade.py` conversions remain unchanged unless
+the option is supplied. Regression checks: `python tools/test_downgrade_visuals.py`.
+
 ## Tools
 
 | Step | Tool | What it does |

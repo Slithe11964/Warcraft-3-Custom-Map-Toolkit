@@ -26,7 +26,7 @@ if not exist "%OUTDIR%\" goto nooutputdir
 set "OUT=%OUTDIR%\%~nx1"
 if exist "%OUT%" goto outputexists
 echo Converting "%~nx1" with %PY% ...
-%PY% "%HERE%tools\downgrade.py" "%~1" "%OUT%" --w3i-template "%R7%" --fill-from "%R7%" --name "%~n1"
+%PY% "%HERE%tools\downgrade.py" "%~1" "%OUT%" --w3i-template "%R7%" --fill-from "%R7%" --name "%~n1" --fferpg-visuals
 if errorlevel 1 goto failed
 echo.
 echo Done: "%OUT%"
