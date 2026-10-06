@@ -37,6 +37,7 @@ class VisualProfileTests(unittest.TestCase):
         files = self.fixture()
         before = copy.deepcopy(files)
         fferpg_visuals(files)
+        self.assertEqual(before['war3map.w3u'], files['war3map.w3u'])
         for ext in ('w3u', 'w3a'):
             old = read_objects(before['war3map.' + ext], ext)
             new = read_objects(files['war3map.' + ext], ext)
@@ -47,12 +48,6 @@ class VisualProfileTests(unittest.TestCase):
                     self.assertEqual(len(added), 4)
                     self.assertTrue(all(m['value'] == '' for m in added))
                     mods[:] = [m for m in mods if m not in added]
-                if changed['id'] == 'H01D':
-                    fields = {m['field']: m['value'] for m in mods}
-                    self.assertEqual((fields['ussc'], fields['uslz']), (0.0, 0.0))
-                    mods[:] = [m for m in mods if m['field'] not in ('ussc', 'uslz')]
-                    original['sets'][0]['mods'][:] = [m for m in original['sets'][0]['mods']
-                                                       if m['field'] not in ('ussc', 'uslz')]
                 self.assertEqual(original, changed)
 
     def test_explicit_passive_art_is_preserved_and_profile_is_idempotent(self):

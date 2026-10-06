@@ -178,13 +178,12 @@ def objects_v2(m, ext, strings=None, old=None, report=None):
     return out
 
 def fferpg_visuals(files):
-    """Pin dummy-passive art and hide Gaya's flying selection indicator in FF Epic RPG."""
+    """Pin inherited dummy-passive art without changing unit selection or UI geometry."""
     units = read_objects(files['war3map.w3u'], 'w3u')
     abilities = read_objects(files['war3map.w3a'], 'w3a')
     by_unit = {o['id']: o for o in units['custom']}
     by_ability = {o['id']: o for o in abilities['custom']}
-    expected = {'H002': ('Hapm', 'A0HL'), 'H00F': ('Eill', 'A0HP'),
-                'H01D': ('now3', 'A0VJ')}
+    expected = {'H002': ('Hapm', 'A0HL'), 'H00F': ('Eill', 'A0HP')}
     for rawcode, (base, passive) in expected.items():
         obj = by_unit.get(rawcode)
         if not obj or obj['base'] != base:
@@ -201,11 +200,6 @@ def fferpg_visuals(files):
         for field in ('acat', 'atat', 'aeat', 'asat'):
             if field not in have:
                 mods.append(dict(field=field, type=3, level=0, data=0, value='', end=0))
-    mods = by_unit['H01D']['sets'][0]['mods']
-    for field in ('ussc', 'uslz'):
-        mods[:] = [x for x in mods if x['field'] != field]
-        mods.append(dict(field=field, type=1, level=None, data=None, value=0.0, end=0))
-    files['war3map.w3u'] = write_objects(units, 2, 'w3u')
     files['war3map.w3a'] = write_objects(abilities, 2, 'w3a')
 
 # ---------------------------------------------------------------- regions / cameras (editor only)
@@ -396,7 +390,7 @@ def main():
                     'fields Reforged left out are copied from it. Strongly recommended')
     ap.add_argument('--no-editor-files', action='store_true', help='leave out trigger/region/camera editor files (play-only map)')
     ap.add_argument('--fferpg-visuals', action='store_true',
-                    help='clear inherited Chemist/Ninja dummy-passive art and hide Gaya selection indicator')
+                    help='clear inherited Chemist/Ninja dummy-passive art, preserving unit UI settings')
     a = ap.parse_args()
     m = MPQ(a.map)
     files, report = {}, []
@@ -412,7 +406,7 @@ def main():
     report.append('object data -> v2 (skin files merged)')
     if a.fferpg_visuals:
         fferpg_visuals(files)
-        report.append('FF Epic RPG: explicit dummy-passive art; Gaya flying selection indicator hidden')
+        report.append('FF Epic RPG: explicit dummy-passive art; unit selection/UI settings preserved')
     files['war3map.w3i'] = w3i_v25(MPQ(a.w3i_template).read('war3map.w3i'), m.read('war3map.w3i')); report.append('map info -> v25')
     text = m.read('war3map.j').decode('utf-8')
     crlf = '\r\n' in text

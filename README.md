@@ -14,10 +14,13 @@ protected map to the documented, modular map it is now.
 
 `downgrade_129.bat` is the FF Epic RPG shortcut. It keeps the input filename in a sibling
 `1.29.2` folder and refuses existing outputs. It now passes `--fferpg-visuals`: missing attachment
-art on Pharmacology/Dual Wield is explicitly empty, and Gaya's flying selection circle/stem is hidden.
+art on Pharmacology/Dual Wield is explicitly empty. Unit selection geometry is preserved; the stage X
+attempt to hide Gaya's circle was removed in stage Y after a displaced health-panel report.
 This profile verifies the expected FF unit/passive IDs before applying appearance changes; it does
 not change ability lists, stats or script. Generic `downgrade.py` conversions remain unchanged unless
 the option is supplied. Regression checks: `python tools/test_downgrade_visuals.py`.
+Flying-unit lines belong to Warcraft 3.0's Air-to-Ground Indicators display option, independent of
+the map's selection circles (`showAirToGroundIndicators` in War3Preferences.txt).
 
 ## Tools
 
