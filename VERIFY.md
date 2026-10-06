@@ -23,5 +23,9 @@ because a generic converter cannot guess the map's original metadata or missing 
 The old FF-specific readability phases are examples in the separate FFERPG repository, not dependencies.
 The reusable toolkit produces basic modules and insight docs; map-specific refactors remain manual.
 
+All seven tests also pass from a fresh Git clone, using only tracked files and an explicit Python
+executable. In particular the compatibility step locates tracked tools/bin/pjass.exe without PATH setup.
+No project LICENSE has been selected; bundled game/compiler libraries retain their upstream ownership.
+
 Maps, work/out directories, Python caches and logs are ignored. Only tools, libraries, tests and guides
 are uploaded. No remote was configured and nothing was published during this verification.
