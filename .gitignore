@@ -1,3 +1,8 @@
 work/
 __pycache__/
 *.tmp
+out/
+*.w3x
+*.w3m
+*.pyc
+*_log.txt

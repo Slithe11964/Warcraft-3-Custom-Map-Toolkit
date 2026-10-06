@@ -12,11 +12,13 @@ Produces in OUT_DIR:
 Stops at the first step that fails.
 """
 import os, subprocess, sys
+import hashlib, json
+from pathlib import Path
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 def run(*args, out=None):
     print('>', ' '.join(os.path.basename(a) if i == 0 else a for i, a in enumerate(args)))
-    r = subprocess.run([sys.executable, os.path.join(HERE, args[0])] + list(args[1:]), capture_output=True, text=True)
+    r = subprocess.run([sys.executable, os.path.join(HERE, args[0])] + list(args[1:]), capture_output=True, text=True, encoding='utf-8', errors='replace', env=dict(os.environ, PYTHONIOENCODING='utf-8'))
     text = r.stdout + r.stderr
     if out:
         open(out, 'w', encoding='utf-8').write(text)
@@ -27,7 +29,10 @@ def run(*args, out=None):
         sys.exit('stopped: %s failed' % args[0])
 
 def main(src, out):
+    if os.path.exists(out) and os.listdir(out):
+        sys.exit('output directory must be empty; existing work is never overwritten')
     os.makedirs(out, exist_ok=True)
+    original_hash = hashlib.sha256(Path(src).read_bytes()).hexdigest()
     p = lambda n: os.path.join(out, n)
     for n in ('1-deprotected.w3x', '2-split.w3x', '3-formatted.w3x'):
         if os.path.exists(p(n)):
@@ -41,6 +46,15 @@ def main(src, out):
     run('export_sources.py', p('3-formatted.w3x'), p('src'))
     run('document.py', p('src'), p('docs'))
     run('compat_report.py', p('3-formatted.w3x'), out=p('compatibility.md'))
+    if hashlib.sha256(Path(src).read_bytes()).hexdigest() != original_hash:
+        sys.exit('original input changed during processing')
+    files = {}
+    for directory, _, names in os.walk(out):
+        for name in names:
+            path = os.path.join(directory, name)
+            files[os.path.relpath(path, out).replace('\\', '/')] = hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    with open(p('manifest.json'), 'w', encoding='utf-8') as f:
+        json.dump(dict(input=os.path.basename(src), input_sha256=original_hash, output_sha256=files), f, indent=2)
     print('done: open %s in World Editor (with JassHelper/vJass on), Save As, and play test.' % p('3-formatted.w3x'))
 
 if __name__ == '__main__':

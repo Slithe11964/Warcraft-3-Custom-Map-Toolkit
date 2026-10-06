@@ -12,15 +12,34 @@ python tools/pipeline.py "SomeProtectedMap.w3x" out/SomeMap
 Read [PLAYBOOK.md](PLAYBOOK.md) for the whole process. It also explains how FF Epic RPG went from a
 protected map to the documented, modular map it is now.
 
-`downgrade_129.bat` is the FF Epic RPG shortcut. It keeps the input filename in a sibling
-`1.29.2` folder and refuses existing outputs. It now passes `--fferpg-visuals`: missing attachment
-art on Pharmacology/Dual Wield is explicitly empty. Unit selection geometry is preserved; the stage X
-attempt to hide Gaya's circle was removed in stage Y after a displaced health-panel report.
-This profile verifies the expected FF unit/passive IDs before applying appearance changes; it does
-not change ability lists, stats or script. Generic `downgrade.py` conversions remain unchanged unless
-the option is supplied. Regression checks: `python tools/test_downgrade_visuals.py`.
-Flying-unit lines belong to Warcraft 3.0's Air-to-Ground Indicators display option, independent of
-the map's selection circles (`showAirToGroundIndicators` in War3Preferences.txt).
+## Setup and verification
+
+Python 3.9+ is required; all Python dependencies are in the standard library. The Windows compiler
+tools/bin/pjass.exe and compiler/version libraries are tracked. No sibling project is needed.
+On other operating systems install pjass on PATH. Warcraft III World Editor/JassHelper are needed
+for editor Save As and in-game verification, not the command-line study pipeline.
+
+```powershell
+python tools/test_pipeline.py
+python tools/test_downgrade_visuals.py
+```
+
+The first command tests the complete pipeline on a synthetic JASS map, preserving original/runtime/
+assets, rejecting existing work and Lua, and protecting strings/comments during renaming. No third-party
+map is needed. See VERIFY.md for current results/limits. Generated maps, work/out folders and logs
+are excluded from Git. Pipeline outputs include manifest.json with input and output hashes.
+
+## Optional classic conversion
+
+```powershell
+.\downgrade_129.ps1 -Map "Reforged.w3x" -Template "SameMap-classic.w3x" -FillFrom "SameMap-classic.w3x"
+```
+
+The template must be a classic-format copy of the same map. FillFrom restores missing object defaults
+when such a copy is available. The batch invokes this script and accepts the same arguments.
+No FF Epic RPG input path is hardcoded. Output is a sibling 1.29.2 folder with the same basename;
+existing output is refused. -FFERPGVisuals is an explicit FF-only appearance profile, unnecessary
+for studying other maps. FFERPG has its own standalone shortcut/toolchain in its own repository.
 
 ## Tools
 

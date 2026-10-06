@@ -63,7 +63,8 @@ FLAG_EXISTS = 0x80000000
 
 class MPQ:
     def __init__(self, path):
-        self.d = open(path, 'rb').read()
+        with open(path, 'rb') as archive:
+            self.d = archive.read()
         self.o = self.d.find(b'MPQ\x1a')
         (self.hdr_size, self.arch_size, self.fmt, bss, self.hto, self.bto,
          hc, bc) = struct.unpack('<IIHHIIII', self.d[self.o + 4:self.o + 32])

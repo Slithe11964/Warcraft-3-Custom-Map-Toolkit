@@ -1,0 +1,5 @@
+*.py text eol=lf
+*.md text eol=lf
+*.ps1 text eol=crlf
+*.bat text eol=crlf
+tools/**/*.j -text whitespace=-blank-at-eol,-blank-at-eof

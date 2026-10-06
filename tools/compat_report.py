@@ -15,6 +15,7 @@ from collections import defaultdict
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 from mpq import MPQ
+from check_editable import find_tool
 
 EDITOR_FUNCS = re.compile(r'^(main|config|InitGlobals|InitSounds|CreateRegions|CreateCameras|CreateAllUnits|CreateAllItems|'
                           r'CreateAllDestructables|CreateUnitsForPlayer\d+|CreateBuildingsForPlayer\d+|CreateNeutral\w*|'
@@ -52,7 +53,7 @@ def missing(script, common, blizzard):
     with tempfile.NamedTemporaryFile('w', suffix='.j', delete=False, encoding='utf-8') as f:
         f.write(script); path = f.name
     try:
-        r = subprocess.run(['pjass', common, blizzard, path], capture_output=True, text=True, errors='replace')
+        r = subprocess.run([find_tool('pjass', None), common, blizzard, path], capture_output=True, text=True, errors='replace')
     finally:
         os.unlink(path)
     found = []
@@ -80,6 +81,8 @@ def main():
     a = ap.parse_args()
     m = MPQ(a.map)
     raw = m.read('war3map.j') or m.read('scripts\\war3map.j')
+    if not raw:
+        sys.exit('No JASS script found; Lua maps are not supported.')
     script = raw.decode('utf-8', 'replace').replace('\r\n', '\n')
     owners = owner_lines(script)
     print('# Compatibility report: %s\n' % os.path.basename(a.map))
@@ -110,7 +113,7 @@ def main():
         v = file_version(data, how)
         flag = lambda g: 'yes' if (v != 'Reforged' and isinstance(games[g], int) and v <= games[g]) else '**no** (needs %s)' % games[g]
         print('| %s | %s | %s | %s |' % (name, v, flag('1.29'), flag('1.31')))
-    skins = [n for n in ('war3mapSkin.w3u', 'war3mapSkin.w3a', 'war3mapSkin.w3t', 'war3mapSkin.txt') if m.read(n)]
+    skins = [n for n in ('war3mapSkin.w3u', 'war3mapSkin.w3a', 'war3mapSkin.w3t') if m.read(n)]
     if skins:
         print('\nReforged-only files (ignored by older games): ' + ', '.join(skins))
 

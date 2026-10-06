@@ -6,7 +6,9 @@ custom map, for example to learn how another RPG was built.
 ## 0. Before you start
 
 - Work on a **copy**, never the original download. Keep the original untouched as your baseline.
-- **Look at what you have:** `python tools/check_editable.py MAP.w3x`. If the map has a `war3map.lua`, stop: it's a Lua map.
+- **Look at compatibility:** `python tools/compat_report.py MAP.w3x` reads the playable JASS script.
+  Missing editor text is expected on a protected input; run check_editable.py after deprotecting.
+  The deprotector rejects Lua. Unknown archive compression/protection may require additional work.
 - **Check versions:** `python tools/compat_report.py MAP.w3x` shows which game versions it targets.
 - **Respect the author.** Opening a map to learn from it is one thing. Republishing someone else's
   work needs their permission. FF Epic RPG's maintainers were involved in this project.
@@ -55,13 +57,15 @@ Now the code is indented and in plain files, and you have:
 
 **Put `out/src` in Git** (`git init`, commit). From here on, every change is a reviewable diff.
 
-`python tools/pipeline.py MAP.w3x out/` runs steps 1–3 with checks after each.
+`python tools/pipeline.py MAP.w3x out/` runs steps 1–3 with checks after each. Use an empty
+output folder: existing work is refused. manifest.json records input/output hashes.
 
 ## 4. Clean up (map-specific; FF Epic RPG's phases as a template)
 
 These steps need judgement about the particular map. The FF Epic RPG scripts are in
 `FFERPG/tools/refactor/`. Copy and adapt them; the docs explain each phase
-(`FFERPG/docs/READABILITY_GAMEPLAN.md`).
+(see that repository's CONTRIBUTING.md, SYSTEMS.md and PHASE16.md).
+These FF-specific phases are optional examples, not part of this toolkit's automated pipeline.
 
 | Phase | What | FF Epic RPG script |
 |---|---|---|
