@@ -108,4 +108,4 @@ formats are the harder part: Reforged saves every world and object file in a new
 | Oct 2026 | Claude, phases 0–9: Git repo, readable start-up, module-owned variables, docs, quest-log GUI, safe disabling, dead code, damage split, Variable Editor, hand-off docs. | `WarcraftMapExtractor/FFERPG/` |
 | Oct 2026 | Reusable toolkit (this folder), tested on a second, protected map. | `WarcraftMapExtractor/MapToolkit/` |
 
-The full step-by-step log is `WarcraftMapExtractor/CONTINUE_PROJECT.md` (newest at the top).
+The full step-by-step log is `FFERPG/docs/history/CONTINUE_PROJECT_2026-10.md` (newest at the top).
